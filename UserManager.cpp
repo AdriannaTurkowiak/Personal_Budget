@@ -57,5 +57,38 @@ bool UserManager::isThereLogin(string login)
 }
 void UserManager::incomeRegister()
 {
+    income = getNewIncomeInfo();
+    incomes.push_back(income);
+    incomesFile.saveIncomeInFile(income);
+}
+int UserManager::getNewIncomeId()
+{
+    if (incomes.empty() == true)
+        return 1;
+    else
+        return incomes.back().getIncomeId() + 1;
+}
+Incomes UserManager::getNewIncomeInfo()
+{
+    Incomes newIncome;
+    newIncome.setIncomeId(getNewIncomeId());
 
+    //tu potrzeba przeslac userId
+
+    int amount;
+    string date, item;
+
+    cout << "Enter date of income: ";
+    cin >> date;
+    newIncome.setDate(date);
+
+    cout << "Enter item of income: " << endl;
+    cin >> item;
+    newIncome.setItem(item);
+
+    cout << "Enter amount of income: " << endl;
+    cin >> amount;
+    newIncome.setAmount(amount);
+
+    return newIncome;
 }

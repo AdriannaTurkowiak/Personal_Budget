@@ -2,16 +2,18 @@
 #define INCOMESFILE_H
 
 #include <iostream>
+#include <vector>
 #include "Markup.h"
+#include "Incomes.h"
 
 using namespace std;
 
 class IncomesFile
 {
-    int ID;
+    vector <Incomes> incomes;
 
 public:
-    void saveFile();
-
-};
+    void saveIncomeInFile(Incomes income);
+    vector <Incomes> readFile();
+    };
 #endif

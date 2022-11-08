@@ -29,7 +29,7 @@ switch (selection) {
             personalBudget.userRegister();
             break;
         case '2':
-            ;
+            personalBudget.incomeRegister();
             break;
         case '3':
             ;

@@ -1,0 +1,16 @@
+<IncomeData>
+<SingleIncome>
+<IncomeId>1</IncomeId>
+<UserID>32767</UserID>
+<IncomeDate>2022-01-01</IncomeDate>
+<IncomeItem>Pensja</IncomeItem>
+<IncomeAmount>5000</IncomeAmount>
+</SingleIncome>
+<SingleIncome>
+<IncomeId>2</IncomeId>
+<UserID>32767</UserID>
+<IncomeDate>2022-02-01</IncomeDate>
+<IncomeItem>Premia</IncomeItem>
+<IncomeAmount>10000</IncomeAmount>
+</SingleIncome>
+</IncomeData>
