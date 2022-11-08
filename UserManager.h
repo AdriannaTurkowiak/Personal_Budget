@@ -27,5 +27,6 @@ class UserManager
     int getNewUserId();
     User getNewUserData();
     bool isThereLogin(string login);
+    void incomeRegister();
 };
 #endif

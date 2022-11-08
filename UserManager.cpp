@@ -55,3 +55,7 @@ bool UserManager::isThereLogin(string login)
     }
     return false;
 }
+void UserManager::incomeRegister()
+{
+
+}

@@ -11,6 +11,7 @@ PersonalBudget personalBudget("Users.xml");
 
 char selection;
 system("cls");
+
 cout << " >>> MAIN MENU <<<" << endl;
 cout << "---------------------------" << endl;
 cout << "1. Add user to a file" << endl;
