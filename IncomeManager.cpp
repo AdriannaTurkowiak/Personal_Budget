@@ -9,8 +9,9 @@ void IncomeManager::incomeRegister()
 Incomes IncomeManager::getNewIncomeInfo()
 {
     Incomes newIncome;
-
-    int incomeId = getNewIncomeId();
+    cout << incomes.size();
+    int incomeId;
+    incomeId = getNewIncomeId();
     newIncome.setIncomeId(incomeId);
 
     newIncome.setUserId(LOGGED_USER_ID);

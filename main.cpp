@@ -35,6 +35,7 @@ switch (selection) {
             personalBudget.logIn();
             {
                 while(personalBudget.isUserLogged()){
+
                     cout << " >>> USER MENU <<<" << endl;
                     cout << "---------------------------" << endl;
                     cout << "1. xxxxxxxxxx" << endl;
