@@ -1,6 +1,6 @@
 #include "IncomesFile.h"
 
-void IncomesFile::saveFile(Incomes newIncome)
+void IncomesFile::saveIncomeInFile(Incomes newIncome)
 {
     CMarkup xml;
     bool fileExists = xml.Load(INCOME_FILE_NAME);
@@ -24,36 +24,37 @@ void IncomesFile::saveFile(Incomes newIncome)
 
     return;
 }
-
 vector <Incomes> IncomesFile::readFile(int loggedUserId)
 {
-   Incomes newIncome;
+    Incomes newIncome;
 
     CMarkup xml;
-    xml.Load ("Income.xml");
+    xml.Load (INCOME_FILE_NAME);
 
     xml.FindElem("IncomeData");
     xml.IntoElem();
-        while(xml.FindElem("SingleIncome")){
-                xml.IntoElem();
 
-                xml.FindElem("IncomeID");
-                newIncome.setIncomeId(atoi(MCD_2PCSZ(xml.GetData())));
+    while(xml.FindElem("SingleIncome")) {
+        xml.IntoElem();
 
-                xml.FindElem("UserID");
-                newIncome.setUserId(atoi(MCD_2PCSZ(xml.GetData())));
+        xml.FindElem("IncomeID");
+        newIncome.setIncomeId(atoi(MCD_2PCSZ(xml.GetData())));
 
-                xml.FindElem("Date");
-                newIncome.setDate(MCD_2PCSZ(xml.GetData()));
+        xml.FindElem("UserID");
+        newIncome.setUserId(atoi(MCD_2PCSZ(xml.GetData())));
 
-                xml.FindElem("Item");
-                newIncome.setItem(MCD_2PCSZ(xml.GetData()));
+        xml.FindElem("IncomeDate");
+        newIncome.setDate(MCD_2PCSZ(xml.GetData()));
 
-                xml.FindElem("Amount");
-                newIncome.setAmount(atoi(MCD_2PCSZ(xml.GetData())));
+        xml.FindElem("IncomeItem");
+        newIncome.setItem(MCD_2PCSZ(xml.GetData()));
 
-    xml.OutOfElem();
-    incomes.push_back(newIncome);}
+        xml.FindElem("IncomeAmount");
+        newIncome.setAmount(atoi(MCD_2PCSZ(xml.GetData())));
 
-return incomes;
+        xml.OutOfElem();
+        incomes.push_back(newIncome);
+    }
+    return incomes;
 }
+

@@ -4,13 +4,18 @@ void IncomeManager::incomeRegister()
 {
     income = getNewIncomeInfo();
     incomes.push_back(income);
-    incomesFile.saveFile(income);
+    incomesFile.saveIncomeInFile(income);
+
+    cout << endl << "New income is registered." << endl << endl;
+    system("pause");
 }
 Incomes IncomeManager::getNewIncomeInfo()
 {
     Incomes newIncome;
+    cout << incomes.size();
 
-    int incomeId = getNewIncomeId();
+    int incomeId;
+    incomeId = getNewIncomeId();
     newIncome.setIncomeId(incomeId);
 
     newIncome.setUserId(LOGGED_USER_ID);
@@ -37,5 +42,7 @@ int IncomeManager::getNewIncomeId()
     if (incomes.empty() == true)
         return 1;
     else
-        return incomes.back().getIncomeId() + 1;
+    {int NewIncomeId = 0;
+     NewIncomeId = incomes.back().getIncomeId() + 1;
+        return NewIncomeId;}
 }

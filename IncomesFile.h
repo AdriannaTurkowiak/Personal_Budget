@@ -2,6 +2,7 @@
 #define INCOMESFILE_H
 
 #include <iostream>
+#include <vector>
 #include "Markup.h"
 #include "Incomes.h"
 
@@ -9,15 +10,17 @@ using namespace std;
 
 class IncomesFile
 {
-    const string INCOME_FILE_NAME;
     vector <Incomes> incomes;
+    const string INCOME_FILE_NAME;
     int lastIncomeId;
 
 public:
-       IncomesFile(string incomeFileName) : INCOME_FILE_NAME(incomeFileName) {
+        IncomesFile(string incomeFileName) : INCOME_FILE_NAME(incomeFileName) {
         lastIncomeId = 0;
     }
-    void saveFile(Incomes newIncome);
-    vector <Incomes> readFile(int loggedUserId );
-};
+    void saveIncomeInFile(Incomes income);
+    vector <Incomes> readFile(int loggedUserId);
+    int getLastIncomeId();
+
+    };
 #endif

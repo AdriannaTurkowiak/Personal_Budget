@@ -17,6 +17,7 @@ class UserManager
     vector <User> users;
     User user;
     UserFile userFile;
+    int loggedUserId;
 
     public:
     UserManager(string userFileName) : userFile(userFileName) {
@@ -27,5 +28,10 @@ class UserManager
     int getNewUserId();
     User getNewUserData();
     bool isThereLogin(string login);
+    int getIdOfLoggedUser();
+    void userLogIn();
+    bool isUserLogged();
+
+
 };
 #endif

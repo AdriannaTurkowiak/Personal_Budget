@@ -55,3 +55,48 @@ bool UserManager::isThereLogin(string login)
     }
     return false;
 }
+int UserManager::getIdOfLoggedUser()
+{
+    return loggedUserId;
+}
+void UserManager::userLogIn()
+{
+    string login = "", password = "";
+
+    cout << endl << "Enter login: ";
+    cin >> login;
+
+    for (int i = 0; i < (int) users.size(); i++)
+    {
+        if (users[i].getLogin() == login)
+        {
+            for (int quantity = 3; quantity > 0; quantity--)
+            {
+                cout << "Enter password. Attempts left: " << quantity << ": ";
+                cin >> password;
+
+                if (users[i].getPassword() == password)
+                {
+                    cout << endl << "You logged in." << endl << endl;
+                    system("pause");
+                    loggedUserId = users[i].getId();
+                    return;
+                }
+            }
+            cout << "Wrong password entered 3 times." << endl;
+            system("pause");
+            return;
+        }
+    }
+    cout << "There is no user with this login" << endl << endl;
+    system("pause");
+    return;
+}
+bool UserManager::isUserLogged()
+{
+    if (loggedUserId > 0)
+        return true;
+    else {
+        return false;
+    }
+}
