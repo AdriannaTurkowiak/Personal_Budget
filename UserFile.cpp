@@ -6,7 +6,7 @@ void UserFile::saveUserInFile(User newUser)
     bool fileExists = xml.Load(USER_FILE_NAME);
 
     if (!fileExists) {
-        xml.AddElem("SingleUser");
+        xml.AddElem("PersonalData");
     }
 
     xml.FindElem();
@@ -27,7 +27,6 @@ void UserFile::saveUserInFile(User newUser)
 vector <User> UserFile::readFile()
 {
    User newUser;
-    //vector <User> Users;
 
     CMarkup xml;
     xml.Load ("Users.xml");
