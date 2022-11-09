@@ -55,40 +55,48 @@ bool UserManager::isThereLogin(string login)
     }
     return false;
 }
-void UserManager::incomeRegister()
+int UserManager::getIdOfLoggedUser()
 {
-    income = getNewIncomeInfo();
-    incomes.push_back(income);
-    incomesFile.saveIncomeInFile(income);
+    return loggedUserId;
 }
-int UserManager::getNewIncomeId()
+void UserManager::userLogIn()
 {
-    if (incomes.empty() == true)
-        return 1;
-    else
-        return incomes.back().getIncomeId() + 1;
+    string login = "", password = "";
+
+    cout << endl << "Enter login: ";
+    cin >> login;
+
+    for (int i = 0; i < (int) users.size(); i++)
+    {
+        if (users[i].getLogin() == login)
+        {
+            for (int quantity = 3; quantity > 0; quantity--)
+            {
+                cout << "Enter password. Attempts left: " << quantity << ": ";
+                cin >> password;
+
+                if (users[i].getPassword() == password)
+                {
+                    cout << endl << "You logged in." << endl << endl;
+                    system("pause");
+                    loggedUserId = users[i].getId();
+                    return;
+                }
+            }
+            cout << "Wrong password entered 3 times." << endl;
+            system("pause");
+            return;
+        }
+    }
+    cout << "There is no user with this login" << endl << endl;
+    system("pause");
+    return;
 }
-Incomes UserManager::getNewIncomeInfo()
+bool UserManager::isUserLogged()
 {
-    Incomes newIncome;
-    newIncome.setIncomeId(getNewIncomeId());
-
-    //tu potrzeba przeslac userId
-
-    int amount;
-    string date, item;
-
-    cout << "Enter date of income: ";
-    cin >> date;
-    newIncome.setDate(date);
-
-    cout << "Enter item of income: " << endl;
-    cin >> item;
-    newIncome.setItem(item);
-
-    cout << "Enter amount of income: " << endl;
-    cin >> amount;
-    newIncome.setAmount(amount);
-
-    return newIncome;
+    if (loggedUserId > 0)
+        return true;
+    else {
+        return false;
+    }
 }
