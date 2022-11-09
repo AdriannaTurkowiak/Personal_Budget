@@ -27,7 +27,6 @@ void UserFile::saveUserInFile(User newUser)
 }
 vector <User> UserFile::readFile()
 {
-
     User newUser;
 
     CMarkup xml;

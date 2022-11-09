@@ -14,7 +14,7 @@ Incomes IncomeManager::getNewIncomeInfo()
     Incomes newIncome;
     cout << incomes.size();
 
-    int incomeId;
+    int incomeId = 0;
     incomeId = getNewIncomeId();
     newIncome.setIncomeId(incomeId);
 
