@@ -41,4 +41,11 @@
 <Item>pensja</Item>
 <Amount>15</Amount>
 </SingleIncome>
+<SingleIncome>
+<IncomeID>7</IncomeID>
+<UserID>1</UserID>
+<Date>2021</Date>
+<Item>DYHR</Item>
+<Amount>1</Amount>
+</SingleIncome>
 </IncomeData>
