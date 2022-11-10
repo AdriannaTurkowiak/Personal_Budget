@@ -6,26 +6,28 @@
 #include "Markup.h"
 #include "User.h"
 #include "UserManager.h"
-#include "IncomeManager.h"
+#include "MoneyManager.h"
 
 using namespace std;
 
 class PersonalBudget {
 
     UserManager userManager;
-    IncomeManager *incomeManager;
+    MoneyManager *moneyManager;
     const string INCOME_FILE_NAME;
+    const string EXPENSE_FILE_NAME;
 
 public:
-    PersonalBudget(string userFileName, string incomeFileName) : userManager(userFileName), INCOME_FILE_NAME(incomeFileName) {
-    incomeManager = NULL;
+    PersonalBudget(string userFileName, string incomeFileName, string expenseFileName) : userManager(userFileName), INCOME_FILE_NAME(incomeFileName), EXPENSE_FILE_NAME(expenseFileName) {
+    moneyManager = NULL;
     };
     ~PersonalBudget(){
-    delete incomeManager;
-    incomeManager = NULL;
+    delete moneyManager;
+    moneyManager = NULL;
     }
     void userRegister();
     void incomeRegister();
+    void expenseRegister();
     void logIn();
     bool isUserLogged();
     char userMenu();
