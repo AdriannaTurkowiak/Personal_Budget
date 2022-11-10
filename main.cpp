@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-PersonalBudget personalBudget("Users.xml", "Income.xml");
+PersonalBudget personalBudget("Users.xml", "Income.xml", "Expense.xml");
 
 char selection;
 system("cls");
@@ -15,14 +15,8 @@ system("cls");
 cout << " >>> MAIN MENU <<<" << endl;
 cout << "---------------------------" << endl;
 cout << "1. Add user to a file" << endl;
-<<<<<<< HEAD
 cout << "2. LogIn" << endl;
 cout << "3. Exit" << endl;
-=======
-cout << "2. Add income to a file" << endl;
-cout << "3. LogIn" << endl;
-cout << "4. Exit" << endl;
->>>>>>> feature/income_register
 cout << "---------------------------" << endl;
 cout << "Your choice: " << endl;
 
@@ -33,7 +27,6 @@ switch (selection) {
         case '1':
             personalBudget.userRegister();
             break;
-<<<<<<< HEAD
         case '2': {
                 personalBudget.logIn();
                 {
@@ -46,6 +39,9 @@ switch (selection) {
                             personalBudget.incomeRegister();
                             break;
                         case '2':
+                            personalBudget.expenseRegister();
+                            break;
+                        case '3':
                             exit (0);
                             break;
                         }
@@ -54,30 +50,6 @@ switch (selection) {
             }
             break;
         case '3':
-=======
-        case '2':
-            personalBudget.incomeRegister();
-            break;
-        case '3':
-            personalBudget.logIn();
-            {
-                while(personalBudget.isUserLogged()){
-
-                    cout << " >>> USER MENU <<<" << endl;
-                    cout << "---------------------------" << endl;
-                    cout << "1. xxxxxxxxxx" << endl;
-                    cout << "2. xxxxxxxxxx" << endl;
-                    cout << "3. xxxxxxxxxx" << endl;
-                    cout << "4. xxxxxxxxxx" << endl;
-                    cout << "---------------------------" << endl;
-                    cout << "Your choice: " << endl;
-                    cin >> selection;
-                    exit (0);
-            }
-            break;
-            }
-        case '4':
->>>>>>> feature/income_register
             exit (0);
             break;
 }
