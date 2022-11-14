@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "Markup.h"
+#include "Date.h"
 #include "Expenses.h"
 
 using namespace std;
@@ -21,6 +22,5 @@ public:
     void saveExpenseInFile(Expenses expense);
     vector <Expenses> readFile(int loggedUserId);
     int getlastExpenseId();
-
     };
 #endif

@@ -3,7 +3,6 @@
 void ExpensesFile::saveExpenseInFile(Expenses newExpense)
 {
     CMarkup xml;
-
     bool fileExists = xml.Load(EXPENSES_FILE_NAME);
 
     if (!fileExists) {
@@ -58,4 +57,3 @@ vector <Expenses> ExpensesFile::readFile(int loggedUserId)
     }
     return expenses;
 }
-
