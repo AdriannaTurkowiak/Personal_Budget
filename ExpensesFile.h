@@ -22,5 +22,9 @@ public:
     void saveExpenseInFile(Expenses expense);
     vector <Expenses> readFile(int loggedUserId);
     int getlastExpenseId();
+void showVector(vector<Expenses> expenses);
+string convertIntToString(int number);
+
+
     };
 #endif
