@@ -31,10 +31,19 @@ char PersonalBudget::userMenu()
         cout << "---------------------------" << endl;
         cout << "1. Add income" << endl;
         cout << "2. Add expense" << endl;
-        cout << "3. Exit" << endl;
+        cout << "3. Compare dates" << endl;
+        cout << "4. Exit" << endl;
         cout << "---------------------------" << endl;
         cout << "Your choice: " << endl;
         cin >> selection;
 
   return selection;
+}
+void PersonalBudget::findToday()
+{
+        date.findToday();
+}
+void PersonalBudget::compareDate()
+{
+    return date.compareDate();
 }

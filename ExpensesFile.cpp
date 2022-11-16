@@ -1,7 +1,6 @@
 #include "ExpensesFile.h"
 
-void ExpensesFile::saveExpenseInFile(Expenses newExpense)
-{
+void ExpensesFile::saveExpenseInFile(Expenses newExpense) {
     CMarkup xml;
     bool fileExists = xml.Load(EXPENSES_FILE_NAME);
 
@@ -24,8 +23,7 @@ void ExpensesFile::saveExpenseInFile(Expenses newExpense)
 
     return;
 }
-vector <Expenses> ExpensesFile::readFile(int loggedUserId)
-{
+vector <Expenses> ExpensesFile::readFile(int loggedUserId) {
     Expenses newExpense;
 
     CMarkup xml;
@@ -54,22 +52,20 @@ vector <Expenses> ExpensesFile::readFile(int loggedUserId)
 
         xml.OutOfElem();
         expenses.push_back(newExpense);
-        }
-        showVector(expenses);
+    }
     return expenses;
 }
-void ExpensesFile::showVector(vector<Expenses> expenses) {
+/*void ExpensesFile::showVector(vector<Expenses> expenses) {
 
-    for (int i = 0; i < (int) expenses.size(); i++)
-    {
-    cout << "ExpenseID: " << expenses[i].getExpenseId() << endl;
-    cout << "UserID: " << expenses[i].getUserId() << endl;
-    cout << "IncomeDate: " << expenses[i].getDate() << endl;
-    cout << "IncomeItem: " << expenses[i].getItem() << endl;
-    cout << "IncomeAmount: " << expenses[i].getAmount() << endl;
-    system("pause");
-}
-}
+    for (int i = 0; i < (int) expenses.size(); i++) {
+        cout << "ExpenseID: " << expenses[i].getExpenseId() << endl;
+        cout << "UserID: " << expenses[i].getUserId() << endl;
+        cout << "IncomeDate: " << expenses[i].getDate() << endl;
+        cout << "IncomeItem: " << expenses[i].getItem() << endl;
+        cout << "IncomeAmount: " << expenses[i].getAmount() << endl;
+        system("pause");
+    }
+}*/
 /*string ExpensesFile :: convertIntToString(int number)
 {
     ostringstream ss;

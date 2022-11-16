@@ -9,22 +9,20 @@
 
 using namespace std;
 
-class ExpensesFile
-{
+class ExpensesFile {
     vector <Expenses> expenses;
     const string EXPENSES_FILE_NAME;
     int lastExpenseId;
 
 public:
-        ExpensesFile(string expenseFileName) : EXPENSES_FILE_NAME(expenseFileName) {
+    ExpensesFile(string expenseFileName) : EXPENSES_FILE_NAME(expenseFileName) {
         lastExpenseId = 0;
     }
     void saveExpenseInFile(Expenses expense);
     vector <Expenses> readFile(int loggedUserId);
     int getlastExpenseId();
-void showVector(vector<Expenses> expenses);
-string convertIntToString(int number);
+    void showVector(vector<Expenses> expenses);
+    string convertIntToString(int number);
 
-
-    };
+};
 #endif

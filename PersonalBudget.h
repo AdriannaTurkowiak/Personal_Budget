@@ -7,6 +7,7 @@
 #include "User.h"
 #include "UserManager.h"
 #include "MoneyManager.h"
+#include "DateManager.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class PersonalBudget {
     MoneyManager *moneyManager;
     const string INCOME_FILE_NAME;
     const string EXPENSE_FILE_NAME;
+    DateManager date;
 
 public:
     PersonalBudget(string userFileName, string incomeFileName, string expenseFileName) : userManager(userFileName), INCOME_FILE_NAME(incomeFileName), EXPENSE_FILE_NAME(expenseFileName) {
@@ -31,6 +33,8 @@ public:
     void logIn();
     bool isUserLogged();
     char userMenu();
+    void findToday();
+    void compareDate();
 
 };
 
