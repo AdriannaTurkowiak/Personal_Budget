@@ -1,6 +1,6 @@
 #include "DateManager.h"
 
-Date DateManager::findToday() {
+string DateManager::findToday() {
 
     int yearToday, monthToday, dayToday;
     string dateTodayString, yearTodayString, monthTodayString, dayTodayString;
@@ -23,9 +23,10 @@ Date DateManager::findToday() {
     dateTodayString = addDashToDate(dateTodayString);
 
     cout << "Today is: " << dateTodayString << endl;
+    cout << endl;
     system("pause");
 
-    return dateObject;
+    return dateTodayString;
 }
 int DateManager::getNumberOfDaysInMonth(int month, int year) {
     //leap year condition, if month is February
@@ -122,19 +123,29 @@ string DateManager :: convertIntToString(int number)
     string strNumber = ss.str();
     return strNumber;
 }
-string DateManager::getLastMonthFirstDay(Date dateObject)
+string DateManager::getLastMonthFirstDay()
 {
-    string date, year, month, day;
-    date = year + month + day;
-    year = dateObject.getYear();
-    month = dateObject.getMonth();
-    day = dateObject.getDay();
-    date = addDashToDate(date) ;
-    /*cout << "Year: " << dateObject.getYear() << endl;
-    cout << "Month: " << dateObject.getMonth() << endl;
-    cout << "Day: " << dateObject.getDay() << endl;*/
+    string today = findToday();
+    string lmfdDateString, lmfdYearString, lmfdMonthString, lmfdDayString = "01";
+    int lmfdDate, lmfdYear, lmfdMonth, lmfdDay;
 
-    return date;
+    lmfdYearString = today;
+    lmfdYearString = lmfdYearString.erase(4,6);
+
+    lmfdMonthString = today;
+    lmfdMonthString = lmfdMonthString.substr(5,2);
+    lmfdMonth = convertStringToInt(lmfdMonthString);
+    lmfdMonth = lmfdMonth - 1;
+    lmfdMonthString = convertIntToString(lmfdMonth);
+
+    lmfdDateString = lmfdYearString + lmfdMonthString + lmfdDayString;
+    lmfdDateString = addDashToDate(lmfdDateString);
+
+    cout << "First day of last month was: " << lmfdDateString << endl;
+    cout << endl;
+    system("pause");
+
+    return lmfdDateString;
 }
 //string DateManager::getLastMonthLastDay(Date dateObject);
 string DateManager :: addDashToDate(string date) {

@@ -18,11 +18,11 @@ class DateManager
 
     public:
     void findYear(string date);
-    Date findToday();
+    string findToday();
     int getNumberOfDaysInMonth(int month, int year);
     void compareDate();
     int convertStringToInt(string number);
-    string getLastMonthFirstDay(Date dateObject);
+    string getLastMonthFirstDay();
     string addDashToDate(string date);
     string convertIntToString(int number);
 

@@ -35,6 +35,8 @@ public:
     char userMenu();
     void findToday();
     void compareDate();
+    void getLastMonthFirstDay();
+
 };
 
 #endif

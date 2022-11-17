@@ -48,7 +48,7 @@ switch (selection) {
                             personalBudget.findToday();
                             break;
                         case '5':
-                            //personalBudget.compareDate();
+                            personalBudget.getLastMonthFirstDay();
                             break;
                         case '6':
                             exit (0);
