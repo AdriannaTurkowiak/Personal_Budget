@@ -17,16 +17,14 @@ class DateManager
     Date dateObject;
 
     public:
-        DateManager()
-        {
-            dateObject = findToday();
-        }
     void findYear(string date);
     Date findToday();
     int getNumberOfDaysInMonth(int month, int year);
     void compareDate();
-    string removeDashFromDate(string dateBefore);
     int convertStringToInt(string number);
+    string getLastMonthFirstDay(Date dateObject);
+    string addDashToDate(string date);
+    string convertIntToString(int number);
 
 };
 #endif

@@ -35,7 +35,6 @@ public:
     char userMenu();
     void findToday();
     void compareDate();
-
 };
 
 #endif

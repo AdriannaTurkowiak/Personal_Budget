@@ -1,27 +1,29 @@
 #include "DateManager.h"
 
-void DateManager::findYear(string date) {
-    return;
-}
-
 Date DateManager::findToday() {
-    int yearToday, monthToday, dayToday;
 
+    int yearToday, monthToday, dayToday;
+    string dateTodayString, yearTodayString, monthTodayString, dayTodayString;
     time_t now = time(0);
     tm *ltm = localtime(&now);
 
     yearToday = 1900 + ltm->tm_year;
     dateObject.setYear(yearToday);
+    yearTodayString = convertIntToString(yearToday);
 
     monthToday = 1 + ltm->tm_mon;
     dateObject.setMonth(monthToday);
+    monthTodayString = convertIntToString(monthToday);
 
     dayToday = ltm->tm_mday;
     dateObject.setDay(dayToday);
+    dayTodayString = convertIntToString(dayToday);
 
-    /*cout << "Year: " << dateObject.getYear() << endl;
-    cout << "Month: " << dateObject.getMonth() << endl;
-    cout << "Day: " << dateObject.getDay() << endl;*/
+    dateTodayString = yearTodayString + monthTodayString + dayTodayString;
+    dateTodayString = addDashToDate(dateTodayString);
+
+    cout << "Today is: " << dateTodayString << endl;
+    system("pause");
 
     return dateObject;
 }
@@ -106,21 +108,39 @@ void DateManager::compareDate() {
         system("pause");
     }
 }
-string DateManager::removeDashFromDate(string dateBefore) {
-
-    string dateAfter;
-
-    for (int i = 0 ; i <= dateBefore.length(); i++) {
-        if (dateBefore[i] != '-') {
-            dateAfter += dateBefore[i];
-        }
-    }
-    return dateAfter;
-}
 int DateManager::convertStringToInt(string number) {
     int numberInt;
     istringstream iss(number);
     iss >> numberInt;
 
     return numberInt;
+}
+string DateManager :: convertIntToString(int number)
+{
+    ostringstream ss;
+    ss << number;
+    string strNumber = ss.str();
+    return strNumber;
+}
+string DateManager::getLastMonthFirstDay(Date dateObject)
+{
+    string date, year, month, day;
+    date = year + month + day;
+    year = dateObject.getYear();
+    month = dateObject.getMonth();
+    day = dateObject.getDay();
+    date = addDashToDate(date) ;
+    /*cout << "Year: " << dateObject.getYear() << endl;
+    cout << "Month: " << dateObject.getMonth() << endl;
+    cout << "Day: " << dateObject.getDay() << endl;*/
+
+    return date;
+}
+//string DateManager::getLastMonthLastDay(Date dateObject);
+string DateManager :: addDashToDate(string date) {
+
+    string stringDateWithDash;
+    stringDateWithDash = date.insert (4,1,'-');
+    stringDateWithDash = stringDateWithDash.insert (7,1,'-');
+    return stringDateWithDash;
 }

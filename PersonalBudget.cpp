@@ -32,7 +32,9 @@ char PersonalBudget::userMenu()
         cout << "1. Add income" << endl;
         cout << "2. Add expense" << endl;
         cout << "3. Compare dates" << endl;
-        cout << "4. Exit" << endl;
+        cout << "4. Find today" << endl;
+        cout << "5. Compare dates" << endl;
+        cout << "6. Exit" << endl;
         cout << "---------------------------" << endl;
         cout << "Your choice: " << endl;
         cin >> selection;

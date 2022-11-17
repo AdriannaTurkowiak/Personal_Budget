@@ -45,6 +45,12 @@ switch (selection) {
                             personalBudget.compareDate();
                             break;
                         case '4':
+                            personalBudget.findToday();
+                            break;
+                        case '5':
+                            //personalBudget.compareDate();
+                            break;
+                        case '6':
                             exit (0);
                             break;
                         }
