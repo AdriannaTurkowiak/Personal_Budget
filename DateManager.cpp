@@ -124,7 +124,7 @@ string DateManager :: convertIntToString(int number) {
 string DateManager::getLastMonthFirstDay() {
     string today = findToday();
     string lmfdDateString, lmfdYearString, lmfdMonthString, lmfdDayString = "01";
-    int lmfdDate, lmfdYear, lmfdMonth, lmfdDay;
+    int lmfdYear, lmfdMonth;
 
     lmfdMonthString = today;
     lmfdMonthString = lmfdMonthString.substr(5,2);
@@ -157,7 +157,7 @@ string DateManager::getLastMonthFirstDay() {
 string DateManager::getLastMonthLastDay() {
     string today = findToday();
     string lmldDateString, lmldYearString, lmldMonthString, lmldDayString;
-    int lmldDate, lmldYear, lmldMonth, lmldDay;
+    int lmldYear, lmldMonth, lmldDay;
 
     lmldMonthString = today;
     lmldMonthString = lmldMonthString.substr(5,2);
@@ -176,9 +176,9 @@ string DateManager::getLastMonthLastDay() {
         lmldMonth = 12;
         lmldMonthString = convertIntToString(lmldMonth);
 
-        lmldYear = convertStringToInt(lmfdYearString);
-        lmldYear = lmfdYear - 1;
-        lmldYearString = convertIntToString(lmfdYear);
+        lmldYear = convertStringToInt(lmldYearString);
+        lmldYear = lmldYear - 1;
+        lmldYearString = convertIntToString(lmldYear);
     }
 
     lmldDay = getNumberOfDaysInMonth(lmldYear, lmldMonth);
