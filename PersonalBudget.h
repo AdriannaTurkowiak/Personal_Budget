@@ -36,6 +36,7 @@ public:
     void findToday();
     void compareDate();
     void getLastMonthFirstDay();
+    void getLastMonthLastDay();
 
 };
 

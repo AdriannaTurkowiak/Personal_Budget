@@ -51,6 +51,9 @@ switch (selection) {
                             personalBudget.getLastMonthFirstDay();
                             break;
                         case '6':
+                            personalBudget.getLastMonthLastDay();
+                            break;
+                        case '7':
                             exit (0);
                             break;
                         }

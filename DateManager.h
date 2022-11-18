@@ -23,6 +23,7 @@ class DateManager
     void compareDate();
     int convertStringToInt(string number);
     string getLastMonthFirstDay();
+    string getLastMonthLastDay();
     string addDashToDate(string date);
     string convertIntToString(int number);
 
