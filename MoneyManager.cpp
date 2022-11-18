@@ -57,7 +57,6 @@ void MoneyManager::expenseRegister()
 Expenses MoneyManager::getNewExpenseInfo()
 {
     Expenses newExpense;
-    cout << expenses.size();
 
     int expenseId = 0;
     expenseId = getNewExpenseId();
@@ -68,8 +67,11 @@ Expenses MoneyManager::getNewExpenseInfo()
     unsigned int amount;
     string date, item;
 
-    cout << "Enter date of expense: ";
+    do{
+    cout << "Enter date of expense with format 'yyyy-mm-dd': " << endl;
     cin >> date;
+    }
+    while (!isDateCorrect(date));
     newExpense.setDate(date);
 
     cout << "Enter item of expense: " << endl;
@@ -90,4 +92,13 @@ int MoneyManager::getNewExpenseId()
     {int NewExpenseId = 0;
      NewExpenseId = expenses.back().getExpenseId() + 1;
         return NewExpenseId;}
+}
+bool MoneyManager::isDateCorrect(string date)
+{
+    if(date.length() == 10)
+        return true;
+    else
+        cout << "This is NOT good date format. Please try again." << endl;
+        cout << endl;
+        return false;
 }

@@ -37,6 +37,7 @@ class MoneyManager
     void expenseRegister();
     int getNewExpenseId();
     Expenses getNewExpenseInfo();
+    bool isDateCorrect(string date);
 
 };
 #endif

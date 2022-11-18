@@ -42,6 +42,18 @@ switch (selection) {
                             personalBudget.expenseRegister();
                             break;
                         case '3':
+                            personalBudget.compareDate();
+                            break;
+                        case '4':
+                            personalBudget.findToday();
+                            break;
+                        case '5':
+                            personalBudget.getLastMonthFirstDay();
+                            break;
+                        case '6':
+                            personalBudget.getLastMonthLastDay();
+                            break;
+                        case '7':
                             exit (0);
                             break;
                         }
@@ -54,17 +66,6 @@ switch (selection) {
             break;
 }
  }
-
-
-/*
-time_t now = time(0);
-tm *ltm = localtime(&now);
-
-int year = 1900 + ltm->tm_year;
-int month = 1 + ltm->tm_mon;
-int day = ltm->tm_mday;*/
-
-//cout << year <<"-"<< month << "-" << day << endl;
 
     return 0;
 }
