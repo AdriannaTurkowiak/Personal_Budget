@@ -24,6 +24,7 @@ void UserFile::saveUserInFile(User newUser) {
 
     return;
 }
+
 vector <User> UserFile::readFile() {
     User newUser;
 

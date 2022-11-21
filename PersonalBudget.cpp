@@ -3,21 +3,26 @@
 void PersonalBudget::userRegister() {
     userManager.userRegister();
 }
+
 void PersonalBudget::incomeRegister() {
     moneyManager->incomeRegister();
 }
+
 void PersonalBudget::expenseRegister() {
     moneyManager->expenseRegister();
 }
+
 void PersonalBudget::logIn() {
     userManager.userLogIn();
     if(userManager.isUserLogged()) {
         moneyManager = new MoneyManager(INCOME_FILE_NAME,userManager.getIdOfLoggedUser(), EXPENSE_FILE_NAME);
     }
 }
+
 bool PersonalBudget::isUserLogged() {
     return userManager.isUserLogged();
 }
+
 char PersonalBudget::mainMenu() {
 
 char selection = {0};
@@ -31,10 +36,11 @@ char selection = {0};
     cout << "---------------------------" << endl;
     cout << "Your choice: " << endl;
 
-    selection = loadCharacter();
+    selection = AuxiliaryMethods::loadCharacter();
 
     return selection;
 }
+
 char PersonalBudget::userMenu() {
 
     char selection;
@@ -51,36 +57,24 @@ char PersonalBudget::userMenu() {
     cout << "---------------------------" << endl;
     cout << "Your choice: " << endl;
 
-    selection = loadCharacter();
+    selection = AuxiliaryMethods::loadCharacter();
 
     return selection;
 }
-char PersonalBudget::loadCharacter()
-{
-    string in = "";
-    char character  = {0};
 
-    while (true)
-    {
-        getline(cin, in);
-
-        if (in.length() == 1)
-        {
-            character = in[0];
-            break;
-        }
-}
-    return character;
-}
 void PersonalBudget::findToday() {
     date.findToday();
 }
+
 void PersonalBudget::compareDate() {
     return date.compareDate();
 }
+
 void PersonalBudget::getLastMonthFirstDay() {
     date.getLastMonthFirstDay();
 }
+
 void PersonalBudget::getLastMonthLastDay() {
     date.getLastMonthLastDay();
 }
+

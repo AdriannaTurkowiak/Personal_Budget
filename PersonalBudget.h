@@ -8,6 +8,7 @@
 #include "UserManager.h"
 #include "MoneyManager.h"
 #include "DateManager.h"
+#include "AuxiliaryMethods.h"
 
 using namespace std;
 

@@ -7,8 +7,8 @@
 #include <stdio.h>
 #include <sstream>
 
-
 #include "Date.h"
+#include "AuxiliaryMethods.h"
 
 using namespace std;
 
@@ -20,10 +20,7 @@ public:
     string findToday();
     int getNumberOfDaysInMonth(int month, int year);
     void compareDate();
-    int convertStringToInt(string number);
     string getLastMonthFirstDay();
     string getLastMonthLastDay();
-    string addDashToDate(string date);
-    string convertIntToString(int number);
 };
 #endif

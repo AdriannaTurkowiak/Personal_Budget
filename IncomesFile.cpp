@@ -24,6 +24,7 @@ void IncomesFile::saveIncomeInFile(Incomes newIncome) {
 
     return;
 }
+
 vector <Incomes> IncomesFile::readFile(int loggedUserId) {
     Incomes newIncome;
 
