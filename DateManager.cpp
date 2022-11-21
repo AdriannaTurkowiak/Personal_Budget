@@ -181,7 +181,7 @@ string DateManager::getLastMonthLastDay() {
         lmldYearString = convertIntToString(lmldYear);
     }
 
-    lmldDay = getNumberOfDaysInMonth(lmldYear, lmldMonth);
+    lmldDay = getNumberOfDaysInMonth(lmldMonth, lmldYear);
     lmldDayString = convertIntToString(lmldDay);
 
     lmldDateString = lmldYearString + lmldMonthString + lmldDayString;

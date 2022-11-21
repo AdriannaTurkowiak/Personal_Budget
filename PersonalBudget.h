@@ -21,11 +21,11 @@ class PersonalBudget {
 
 public:
     PersonalBudget(string userFileName, string incomeFileName, string expenseFileName) : userManager(userFileName), INCOME_FILE_NAME(incomeFileName), EXPENSE_FILE_NAME(expenseFileName) {
-    moneyManager = NULL;
+        moneyManager = NULL;
     };
-    ~PersonalBudget(){
-    delete moneyManager;
-    moneyManager = NULL;
+    ~PersonalBudget() {
+        delete moneyManager;
+        moneyManager = NULL;
     }
     void userRegister();
     void incomeRegister();
@@ -37,6 +37,8 @@ public:
     void compareDate();
     void getLastMonthFirstDay();
     void getLastMonthLastDay();
+    char loadCharacter();
+    char mainMenu();
 
 };
 

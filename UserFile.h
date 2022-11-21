@@ -11,14 +11,13 @@
 
 using namespace std;
 
-class UserFile
-{
+class UserFile {
 
-  vector <User> users;
-  const string USER_FILE_NAME;
+    vector <User> users;
+    const string USER_FILE_NAME;
 
-    public:
-        UserFile(string userFileName) : USER_FILE_NAME(userFileName){};
+public:
+    UserFile(string userFileName) : USER_FILE_NAME(userFileName) {};
 
     void saveUserInFile(User newUser);
     vector <User> readFile();

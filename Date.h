@@ -19,6 +19,5 @@ public:
     int getYear();
     int getMonth();
     int getDay();
-    //string readDate(int loggedUserId);
 };
 #endif

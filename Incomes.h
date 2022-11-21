@@ -7,14 +7,12 @@
 
 using namespace std;
 
-class Incomes
-{
+class Incomes {
     int incomeId, userId, amount;
     string date, item;
 
 public:
-    Incomes(int incomeId = 0,int userId = 0,int amount = 0, string date = "",string item = "")
-    {
+    Incomes(int incomeId = 0, int userId = 0, int amount = 0, string date = "",string item = "") {
         this -> incomeId = incomeId;
         this -> userId = userId;
         this -> amount = amount;

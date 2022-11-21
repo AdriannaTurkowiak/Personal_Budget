@@ -1,7 +1,6 @@
 #include "UserManager.h"
 
-void UserManager::userRegister()
-{
+void UserManager::userRegister() {
     user = getNewUserData();
     users.push_back(user);
     userFile.saveUserInFile(user);
@@ -9,15 +8,13 @@ void UserManager::userRegister()
     cout << endl << "New user is registered." << endl << endl;
     system("pause");
 }
-int UserManager::getNewUserId()
-{
+int UserManager::getNewUserId() {
     if (users.empty() == true)
         return 1;
     else
         return users.back().getId() + 1;
 }
-User UserManager::getNewUserData()
-{
+User UserManager::getNewUserData() {
     User newUser;
     newUser.setId(getNewUserId());
 
@@ -43,11 +40,9 @@ User UserManager::getNewUserData()
 
     return newUser;
 }
-bool UserManager::isThereLogin(string login)
-{
-    for(int i = 0; i < (int) users.size(); i++)
-    {
-        if(users[i].getLogin() == login){
+bool UserManager::isThereLogin(string login) {
+    for(int i = 0; i < (int) users.size(); i++) {
+        if(users[i].getLogin() == login) {
 
             cout << endl << "There is user with this login. Try again" << endl;
             return true;
@@ -55,28 +50,22 @@ bool UserManager::isThereLogin(string login)
     }
     return false;
 }
-int UserManager::getIdOfLoggedUser()
-{
+int UserManager::getIdOfLoggedUser() {
     return loggedUserId;
 }
-void UserManager::userLogIn()
-{
+void UserManager::userLogIn() {
     string login = "", password = "";
 
     cout << endl << "Enter login: ";
     cin >> login;
 
-    for (int i = 0; i < (int) users.size(); i++)
-    {
-        if (users[i].getLogin() == login)
-        {
-            for (int quantity = 3; quantity > 0; quantity--)
-            {
+    for (int i = 0; i < (int) users.size(); i++) {
+        if (users[i].getLogin() == login) {
+            for (int quantity = 3; quantity > 0; quantity--) {
                 cout << "Enter password. Attempts left: " << quantity << ": ";
                 cin >> password;
 
-                if (users[i].getPassword() == password)
-                {
+                if (users[i].getPassword() == password) {
                     cout << endl << "You logged in." << endl << endl;
                     system("pause");
                     loggedUserId = users[i].getId();
@@ -92,8 +81,7 @@ void UserManager::userLogIn()
     system("pause");
     return;
 }
-bool UserManager::isUserLogged()
-{
+bool UserManager::isUserLogged() {
     if (loggedUserId > 0)
         return true;
     else {

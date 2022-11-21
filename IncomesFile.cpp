@@ -1,7 +1,6 @@
 #include "IncomesFile.h"
 
-void IncomesFile::saveIncomeInFile(Incomes newIncome)
-{
+void IncomesFile::saveIncomeInFile(Incomes newIncome) {
     CMarkup xml;
 
     bool fileExists = xml.Load(INCOME_FILE_NAME);
@@ -25,8 +24,7 @@ void IncomesFile::saveIncomeInFile(Incomes newIncome)
 
     return;
 }
-vector <Incomes> IncomesFile::readFile(int loggedUserId)
-{
+vector <Incomes> IncomesFile::readFile(int loggedUserId) {
     Incomes newIncome;
 
     CMarkup xml;

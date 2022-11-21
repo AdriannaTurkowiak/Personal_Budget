@@ -55,22 +55,3 @@ vector <Expenses> ExpensesFile::readFile(int loggedUserId) {
     }
     return expenses;
 }
-/*void ExpensesFile::showVector(vector<Expenses> expenses) {
-
-    for (int i = 0; i < (int) expenses.size(); i++) {
-        cout << "ExpenseID: " << expenses[i].getExpenseId() << endl;
-        cout << "UserID: " << expenses[i].getUserId() << endl;
-        cout << "IncomeDate: " << expenses[i].getDate() << endl;
-        cout << "IncomeItem: " << expenses[i].getItem() << endl;
-        cout << "IncomeAmount: " << expenses[i].getAmount() << endl;
-        system("pause");
-    }
-}*/
-/*string ExpensesFile :: convertIntToString(int number)
-{
-    ostringstream ss;
-    ss << number;
-    string str = ss.str();
-    return str;
-}
-*/

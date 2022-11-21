@@ -10,14 +10,7 @@
 <UserID>2</UserID>
 <Login>Katia</Login>
 <Password>111</Password>
-<Name>Katarzyna</Name>
-<Surname>Iwanow</Surname>
-</SingleUser>
-<SingleUser>
-<UserID>3</UserID>
-<Login>Kama</Login>
-<Password>000</Password>
-<Name>Kamila</Name>
-<Surname>Mala</Surname>
+<Name>Katarina</Name>
+<Surname>Moskwa</Surname>
 </SingleUser>
 </PersonalData>

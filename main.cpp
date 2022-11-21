@@ -5,67 +5,71 @@
 
 using namespace std;
 
-int main()
-{
-PersonalBudget personalBudget("Users.xml", "Income.xml", "Expense.xml");
+int main() {
+    PersonalBudget personalBudget("Users.xml", "Income.xml", "Expense.xml");
 
-char selection;
-system("cls");
+    char selection;
 
-cout << " >>> MAIN MENU <<<" << endl;
-cout << "---------------------------" << endl;
-cout << "1. Add user to a file" << endl;
-cout << "2. LogIn" << endl;
-cout << "3. Exit" << endl;
-cout << "---------------------------" << endl;
-cout << "Your choice: " << endl;
-
-cin >> selection;
- while (true) {
-switch (selection) {
+    while (true) {
+        selection = personalBudget.mainMenu();
+        switch (selection) {
 
         case '1':
             personalBudget.userRegister();
             break;
         case '2': {
-                personalBudget.logIn();
-                {
-                    while(personalBudget.isUserLogged()) {
-                        system("cls");
-                        selection = personalBudget.userMenu();
+            personalBudget.logIn();
+            {
+                if(personalBudget.isUserLogged()) {
+                    system("cls");
+                    selection = personalBudget.userMenu();
 
-                        switch (selection) {
-                        case '1':
-                            personalBudget.incomeRegister();
-                            break;
-                        case '2':
-                            personalBudget.expenseRegister();
-                            break;
-                        case '3':
-                            personalBudget.compareDate();
-                            break;
-                        case '4':
-                            personalBudget.findToday();
-                            break;
-                        case '5':
-                            personalBudget.getLastMonthFirstDay();
-                            break;
-                        case '6':
-                            personalBudget.getLastMonthLastDay();
-                            break;
-                        case '7':
-                            exit (0);
-                            break;
-                        }
+                    switch (selection) {
+                    case '1':
+                        personalBudget.incomeRegister();
+                        break;
+                    case '2':
+                        personalBudget.expenseRegister();
+                        break;
+                    case '3':
+                        personalBudget.compareDate();
+                        break;
+                    case '4':
+                        personalBudget.findToday();
+                        break;
+                    case '5':
+                        personalBudget.getLastMonthFirstDay();
+                        break;
+                    case '6':
+                        personalBudget.getLastMonthLastDay();
+                        break;
+                    case '7':
+                        exit (0);
+                        break;
+
+                    default: {
+                        cout << "There is no such option in the menu!" << endl << endl;
+                        system("pause");
+                        break;
                     }
+                    }
+                } else {
+                    cout << "You're not logged in!" << endl << endl;
+                    system("pause");
                 }
             }
-            break;
+        }
+        break;
         case '3':
             exit (0);
             break;
-}
- }
+
+        default:
+            cout << "There is no such option in the menu!" << endl;
+            system("pause");
+            break;
+        }
+    }
 
     return 0;
 }

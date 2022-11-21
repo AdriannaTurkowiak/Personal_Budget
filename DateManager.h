@@ -12,11 +12,10 @@
 
 using namespace std;
 
-class DateManager
-{
+class DateManager {
     Date dateObject;
 
-    public:
+public:
     void findYear(string date);
     string findToday();
     int getNumberOfDaysInMonth(int month, int year);
@@ -26,6 +25,5 @@ class DateManager
     string getLastMonthLastDay();
     string addDashToDate(string date);
     string convertIntToString(int number);
-
 };
 #endif

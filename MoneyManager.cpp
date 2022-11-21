@@ -1,7 +1,6 @@
 #include "MoneyManager.h"
 
-void MoneyManager::incomeRegister()
-{
+void MoneyManager::incomeRegister() {
     income = getNewIncomeInfo();
     incomes.push_back(income);
     incomesFile.saveIncomeInFile(income);
@@ -9,8 +8,7 @@ void MoneyManager::incomeRegister()
     cout << endl << "New income is registered." << endl << endl;
     system("pause");
 }
-Incomes MoneyManager::getNewIncomeInfo()
-{
+Incomes MoneyManager::getNewIncomeInfo() {
     Incomes newIncome;
 
     int incomeId = 0;
@@ -36,17 +34,16 @@ Incomes MoneyManager::getNewIncomeInfo()
 
     return newIncome;
 }
-int MoneyManager::getNewIncomeId()
-{
+int MoneyManager::getNewIncomeId() {
     if (incomes.empty() == true)
         return 1;
-    else
-    {int NewIncomeId = 0;
-     NewIncomeId = incomes.back().getIncomeId() + 1;
-        return NewIncomeId;}
+    else {
+        int NewIncomeId = 0;
+        NewIncomeId = incomes.back().getIncomeId() + 1;
+        return NewIncomeId;
+    }
 }
-void MoneyManager::expenseRegister()
-{
+void MoneyManager::expenseRegister() {
     expense = getNewExpenseInfo();
     expenses.push_back(expense);
     expenseFile.saveExpenseInFile(expense);
@@ -54,8 +51,7 @@ void MoneyManager::expenseRegister()
     cout << endl << "New expense is registered." << endl << endl;
     system("pause");
 }
-Expenses MoneyManager::getNewExpenseInfo()
-{
+Expenses MoneyManager::getNewExpenseInfo() {
     Expenses newExpense;
 
     int expenseId = 0;
@@ -67,11 +63,10 @@ Expenses MoneyManager::getNewExpenseInfo()
     unsigned int amount;
     string date, item;
 
-    do{
-    cout << "Enter date of expense with format 'yyyy-mm-dd': " << endl;
-    cin >> date;
-    }
-    while (!isDateCorrect(date));
+    do {
+        cout << "Enter date of expense with format 'yyyy-mm-dd': " << endl;
+        cin >> date;
+    } while (!isDateCorrect(date));
     newExpense.setDate(date);
 
     cout << "Enter item of expense: " << endl;
@@ -84,21 +79,20 @@ Expenses MoneyManager::getNewExpenseInfo()
 
     return newExpense;
 }
-int MoneyManager::getNewExpenseId()
-{
+int MoneyManager::getNewExpenseId() {
     if (expenses.empty() == true)
         return 1;
-    else
-    {int NewExpenseId = 0;
-     NewExpenseId = expenses.back().getExpenseId() + 1;
-        return NewExpenseId;}
+    else {
+        int NewExpenseId = 0;
+        NewExpenseId = expenses.back().getExpenseId() + 1;
+        return NewExpenseId;
+    }
 }
-bool MoneyManager::isDateCorrect(string date)
-{
+bool MoneyManager::isDateCorrect(string date) {
     if(date.length() == 10)
         return true;
     else
         cout << "This is NOT good date format. Please try again." << endl;
-        cout << endl;
-        return false;
+    cout << endl;
+    return false;
 }

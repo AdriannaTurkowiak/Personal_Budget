@@ -12,16 +12,16 @@
 
 using namespace std;
 
-class UserManager
-{
+class UserManager {
     vector <User> users;
     User user;
     UserFile userFile;
     int loggedUserId;
 
-    public:
+public:
     UserManager(string userFileName) : userFile(userFileName) {
-    users = userFile.readFile();
+        users = userFile.readFile();
+        loggedUserId = 0;
     }
     void userRegister();
     void saveUserInFile(User newUser);
@@ -31,7 +31,5 @@ class UserManager
     int getIdOfLoggedUser();
     void userLogIn();
     bool isUserLogged();
-
-
 };
 #endif

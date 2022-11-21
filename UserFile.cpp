@@ -1,7 +1,6 @@
 #include "UserFile.h"
 
-void UserFile::saveUserInFile(User newUser)
-{
+void UserFile::saveUserInFile(User newUser) {
     CMarkup xml;
     bool fileExists = xml.Load(USER_FILE_NAME);
 
@@ -25,8 +24,7 @@ void UserFile::saveUserInFile(User newUser)
 
     return;
 }
-vector <User> UserFile::readFile()
-{
+vector <User> UserFile::readFile() {
     User newUser;
 
     CMarkup xml;

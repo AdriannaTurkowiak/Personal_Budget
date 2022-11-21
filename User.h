@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class User
-{
+class User {
     int Id;
     string login, password, name, surname;
 
