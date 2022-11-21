@@ -8,12 +8,14 @@ void UserManager::userRegister() {
     cout << endl << "New user is registered." << endl << endl;
     system("pause");
 }
+
 int UserManager::getNewUserId() {
     if (users.empty() == true)
         return 1;
     else
         return users.back().getId() + 1;
 }
+
 User UserManager::getNewUserData() {
     User newUser;
     newUser.setId(getNewUserId());
@@ -40,6 +42,7 @@ User UserManager::getNewUserData() {
 
     return newUser;
 }
+
 bool UserManager::isThereLogin(string login) {
     for(int i = 0; i < (int) users.size(); i++) {
         if(users[i].getLogin() == login) {
@@ -50,9 +53,11 @@ bool UserManager::isThereLogin(string login) {
     }
     return false;
 }
+
 int UserManager::getIdOfLoggedUser() {
     return loggedUserId;
 }
+
 void UserManager::userLogIn() {
     string login = "", password = "";
 
@@ -81,6 +86,7 @@ void UserManager::userLogIn() {
     system("pause");
     return;
 }
+
 bool UserManager::isUserLogged() {
     if (loggedUserId > 0)
         return true;

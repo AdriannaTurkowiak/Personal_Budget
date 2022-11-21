@@ -9,18 +9,18 @@ string DateManager::findToday() {
 
     yearToday = 1900 + ltm->tm_year;
     dateObject.setYear(yearToday);
-    yearTodayString = convertIntToString(yearToday);
+    yearTodayString = AuxiliaryMethods::convertIntToString(yearToday);
 
     monthToday = 1 + ltm->tm_mon;
     dateObject.setMonth(monthToday);
-    monthTodayString = convertIntToString(monthToday);
+    monthTodayString = AuxiliaryMethods::convertIntToString(monthToday);
 
     dayToday = ltm->tm_mday;
     dateObject.setDay(dayToday);
-    dayTodayString = convertIntToString(dayToday);
+    dayTodayString = AuxiliaryMethods::convertIntToString(dayToday);
 
     dateTodayString = yearTodayString + monthTodayString + dayTodayString;
-    dateTodayString = addDashToDate(dateTodayString);
+    dateTodayString = AuxiliaryMethods::addDashToDate(dateTodayString);
 
     cout << "Today is: " << dateTodayString << endl;
     cout << endl;
@@ -28,6 +28,7 @@ string DateManager::findToday() {
 
     return dateTodayString;
 }
+
 int DateManager::getNumberOfDaysInMonth(int month, int year) {
     //leap year condition, if month is February
     if( month == 2) {
@@ -44,6 +45,7 @@ int DateManager::getNumberOfDaysInMonth(int month, int year) {
     else
         return 30;
 }
+
 void DateManager::compareDate() {
 
     string startDate, endDate;
@@ -62,27 +64,27 @@ void DateManager::compareDate() {
 
     startYearString = startDate;
     startYearString = startYearString.erase(4,6);
-    startYear = convertStringToInt(startYearString);
+    startYear = AuxiliaryMethods::convertStringToInt(startYearString);
 
     endYearString = endDate;
     endYearString = endYearString.erase(4,6);
-    endYear = convertStringToInt(endYearString);
+    endYear = AuxiliaryMethods::convertStringToInt(endYearString);
 
     startMonthString = startDate;
     startMonthString = startMonthString.substr(5,2);
-    startMonth = convertStringToInt(startMonthString);
+    startMonth = AuxiliaryMethods::convertStringToInt(startMonthString);
 
     endMonthString = endDate;
     endMonthString = endMonthString.substr(5,2);
-    endMonth = convertStringToInt(endMonthString);
+    endMonth = AuxiliaryMethods::convertStringToInt(endMonthString);
 
     startDayString = startDate;
     startDayString = startDayString.substr(8,2);
-    startDay = convertStringToInt(startDayString);
+    startDay = AuxiliaryMethods::convertStringToInt(startDayString);
 
     endDayString = endDate;
     endDayString = endDayString.substr(8,2);
-    endDay = convertStringToInt(endDayString);
+    endDay = AuxiliaryMethods::convertStringToInt(endDayString);
 
     if (startDate != endDate) {
         cout << "Result of comparison: " << endl;
@@ -108,19 +110,7 @@ void DateManager::compareDate() {
         system("pause");
     }
 }
-int DateManager::convertStringToInt(string number) {
-    int numberInt;
-    istringstream iss(number);
-    iss >> numberInt;
 
-    return numberInt;
-}
-string DateManager :: convertIntToString(int number) {
-    ostringstream ss;
-    ss << number;
-    string strNumber = ss.str();
-    return strNumber;
-}
 string DateManager::getLastMonthFirstDay() {
     string today = findToday();
     string lmfdDateString, lmfdYearString, lmfdMonthString, lmfdDayString = "01";
@@ -128,25 +118,25 @@ string DateManager::getLastMonthFirstDay() {
 
     lmfdMonthString = today;
     lmfdMonthString = lmfdMonthString.substr(5,2);
-    lmfdMonth = convertStringToInt(lmfdMonthString);
+    lmfdMonth = AuxiliaryMethods::convertStringToInt(lmfdMonthString);
     lmfdMonth = lmfdMonth - 1;
 
     lmfdYearString = today;
     lmfdYearString = lmfdYearString.erase(4,6);
 
     if (lmfdMonth != 0) {
-        lmfdMonthString = convertIntToString(lmfdMonth);
+        lmfdMonthString = AuxiliaryMethods::convertIntToString(lmfdMonth);
     } else {
         lmfdMonth = 12;
-        lmfdMonthString = convertIntToString(lmfdMonth);
+        lmfdMonthString = AuxiliaryMethods::convertIntToString(lmfdMonth);
 
-        lmfdYear = convertStringToInt(lmfdYearString);
+        lmfdYear = AuxiliaryMethods::convertStringToInt(lmfdYearString);
         lmfdYear = lmfdYear - 1;
-        lmfdYearString = convertIntToString(lmfdYear);
+        lmfdYearString = AuxiliaryMethods::convertIntToString(lmfdYear);
     }
 
     lmfdDateString = lmfdYearString + lmfdMonthString + lmfdDayString;
-    lmfdDateString = addDashToDate(lmfdDateString);
+    lmfdDateString = AuxiliaryMethods::addDashToDate(lmfdDateString);
 
     cout << "First day of last month was: " << lmfdDateString << endl;
     cout << endl;
@@ -154,6 +144,7 @@ string DateManager::getLastMonthFirstDay() {
 
     return lmfdDateString;
 }
+
 string DateManager::getLastMonthLastDay() {
     string today = findToday();
     string lmldDateString, lmldYearString, lmldMonthString, lmldDayString;
@@ -161,42 +152,35 @@ string DateManager::getLastMonthLastDay() {
 
     lmldMonthString = today;
     lmldMonthString = lmldMonthString.substr(5,2);
-    lmldMonth = convertStringToInt(lmldMonthString);
+    lmldMonth = AuxiliaryMethods::convertStringToInt(lmldMonthString);
     lmldMonth = lmldMonth - 1;
 
     lmldYearString = today;
     lmldYearString = lmldYearString.erase(4,6);
-    lmldYear = convertStringToInt(lmldYearString);
+    lmldYear = AuxiliaryMethods::convertStringToInt(lmldYearString);
 
     if (lmldMonth != 0) {
-        lmldMonthString = convertIntToString(lmldMonth);
+        lmldMonthString = AuxiliaryMethods::convertIntToString(lmldMonth);
     }
 
     else {
         lmldMonth = 12;
-        lmldMonthString = convertIntToString(lmldMonth);
+        lmldMonthString = AuxiliaryMethods::convertIntToString(lmldMonth);
 
-        lmldYear = convertStringToInt(lmldYearString);
+        lmldYear = AuxiliaryMethods::convertStringToInt(lmldYearString);
         lmldYear = lmldYear - 1;
-        lmldYearString = convertIntToString(lmldYear);
+        lmldYearString = AuxiliaryMethods::convertIntToString(lmldYear);
     }
 
     lmldDay = getNumberOfDaysInMonth(lmldMonth, lmldYear);
-    lmldDayString = convertIntToString(lmldDay);
+    lmldDayString = AuxiliaryMethods::convertIntToString(lmldDay);
 
     lmldDateString = lmldYearString + lmldMonthString + lmldDayString;
-    lmldDateString = addDashToDate(lmldDateString);
+    lmldDateString = AuxiliaryMethods::addDashToDate(lmldDateString);
 
     cout << "Last day of last month was: " << lmldDateString << endl;
     cout << endl;
     system("pause");
 
     return lmldDateString;
-}
-string DateManager :: addDashToDate(string date) {
-
-    string stringDateWithDash;
-    stringDateWithDash = date.insert (4,1,'-');
-    stringDateWithDash = stringDateWithDash.insert (7,1,'-');
-    return stringDateWithDash;
 }

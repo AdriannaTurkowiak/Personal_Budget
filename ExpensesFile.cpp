@@ -23,6 +23,7 @@ void ExpensesFile::saveExpenseInFile(Expenses newExpense) {
 
     return;
 }
+
 vector <Expenses> ExpensesFile::readFile(int loggedUserId) {
     Expenses newExpense;
 

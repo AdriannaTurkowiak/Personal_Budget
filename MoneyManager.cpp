@@ -8,6 +8,7 @@ void MoneyManager::incomeRegister() {
     cout << endl << "New income is registered." << endl << endl;
     system("pause");
 }
+
 Incomes MoneyManager::getNewIncomeInfo() {
     Incomes newIncome;
 
@@ -34,6 +35,7 @@ Incomes MoneyManager::getNewIncomeInfo() {
 
     return newIncome;
 }
+
 int MoneyManager::getNewIncomeId() {
     if (incomes.empty() == true)
         return 1;
@@ -43,6 +45,7 @@ int MoneyManager::getNewIncomeId() {
         return NewIncomeId;
     }
 }
+
 void MoneyManager::expenseRegister() {
     expense = getNewExpenseInfo();
     expenses.push_back(expense);
@@ -51,6 +54,7 @@ void MoneyManager::expenseRegister() {
     cout << endl << "New expense is registered." << endl << endl;
     system("pause");
 }
+
 Expenses MoneyManager::getNewExpenseInfo() {
     Expenses newExpense;
 
@@ -79,6 +83,7 @@ Expenses MoneyManager::getNewExpenseInfo() {
 
     return newExpense;
 }
+
 int MoneyManager::getNewExpenseId() {
     if (expenses.empty() == true)
         return 1;
@@ -88,6 +93,7 @@ int MoneyManager::getNewExpenseId() {
         return NewExpenseId;
     }
 }
+
 bool MoneyManager::isDateCorrect(string date) {
     if(date.length() == 10)
         return true;
