@@ -11,7 +11,7 @@ void MoneyManager::incomeRegister() {
 
 Incomes MoneyManager::getNewIncomeInfo() {
     Incomes newIncome;
-
+    char selection;
     int incomeId = 0;
     incomeId = getNewIncomeId();
     newIncome.setIncomeId(incomeId);
@@ -21,9 +21,15 @@ Incomes MoneyManager::getNewIncomeInfo() {
     unsigned int amount;
     string date, item;
 
-    cout << "Enter date of income: ";
-    cin >> date;
-    newIncome.setDate(date);
+    cout << "Is this income for today? Enter Yes 'Y' or No 'N': " << endl;
+    cin >> selection;
+    if (selection = 'Y')
+    newIncome.setDate(dateManager.findToday());
+    else{
+        cout << "Enter date of income: ";
+        cin >> date;
+        newIncome.setDate(date);
+    }
 
     cout << "Enter item of income: " << endl;
     cin >> item;

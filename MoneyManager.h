@@ -11,6 +11,7 @@
 #include "Expenses.h"
 #include "IncomesFile.h"
 #include "ExpensesFile.h"
+#include "DateManager.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ class MoneyManager {
     Expenses expense;
     IncomesFile incomesFile;
     ExpensesFile expenseFile;
+    DateManager dateManager;
 
     const int LOGGED_USER_ID;
 
