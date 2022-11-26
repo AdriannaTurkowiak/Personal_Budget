@@ -49,11 +49,11 @@ char PersonalBudget::userMenu() {
     cout << "---------------------------" << endl;
     cout << "1. Add income" << endl;
     cout << "2. Add expense" << endl;
-    cout << "3. Compare dates" << endl;
-    cout << "4. Find today" << endl;
-    cout << "5. Show last month first day" << endl;
-    cout << "6. Show last month last day" << endl;
-    cout << "7. Exit" << endl;
+    cout << "3. Current month balance" << endl;
+    cout << "4. Last month balance" << endl;
+    cout << "5. Selected period balance" << endl;
+    cout << "6. Change password" << endl;
+    cout << "7. Logout" << endl;
     cout << "---------------------------" << endl;
     cout << "Your choice: " << endl;
 

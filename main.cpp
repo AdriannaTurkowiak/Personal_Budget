@@ -44,7 +44,7 @@ int main() {
                         personalBudget.getLastMonthLastDay();
                         break;
                     case '7':
-                        exit (0);
+                        (!personalBudget.isUserLogged());
                         break;
                     default:
                         cout << "There is no such option in the menu!" << endl << endl;
