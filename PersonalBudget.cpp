@@ -28,7 +28,7 @@ char PersonalBudget::mainMenu() {
 char selection = {0};
 
     system("cls");
-   cout << " >>> MAIN MENU <<<" << endl;
+    cout << " >>> MAIN MENU <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Add user to a file" << endl;
     cout << "2. LogIn" << endl;

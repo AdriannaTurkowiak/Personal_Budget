@@ -5,6 +5,8 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <cmath>
+#include <iomanip>
 
 #include "Markup.h"
 #include "Incomes.h"
@@ -12,6 +14,8 @@
 #include "IncomesFile.h"
 #include "ExpensesFile.h"
 #include "DateManager.h"
+#include "AuxiliaryMethods.h"
+
 
 using namespace std;
 
@@ -40,5 +44,8 @@ public:
     int getNewExpenseId();
     Expenses getNewExpenseInfo();
     bool isDateCorrect(string date);
+    float setDecimal(float amount);
+    string changeCommaToDot (string amount);
+
 };
 #endif

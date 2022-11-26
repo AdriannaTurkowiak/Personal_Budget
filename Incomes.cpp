@@ -10,7 +10,7 @@ void Incomes::setUserId (int newUserId) {
         userId = newUserId;
 }
 
-void Incomes::setAmount (int newAmount) {
+void Incomes::setAmount (string newAmount) {
     amount = newAmount;
 }
 
@@ -30,7 +30,7 @@ int Incomes::getUserId() {
     return userId;
 }
 
-int Incomes::getAmount() {
+string Incomes::getAmount() {
     return amount;
 }
 

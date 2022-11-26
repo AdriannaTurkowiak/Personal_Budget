@@ -12,15 +12,15 @@ int main() {
 
     while (true) {
         selection = personalBudget.mainMenu();
-        switch (selection) {
 
+        switch (selection) {
         case '1':
             personalBudget.userRegister();
             break;
         case '2': {
             personalBudget.logIn();
             {
-                if(personalBudget.isUserLogged()) {
+                while(personalBudget.isUserLogged()) {
                     system("cls");
                     selection = personalBudget.userMenu();
 
@@ -46,16 +46,11 @@ int main() {
                     case '7':
                         exit (0);
                         break;
-
-                    default: {
+                    default:
                         cout << "There is no such option in the menu!" << endl << endl;
                         system("pause");
                         break;
                     }
-                    }
-                } else {
-                    cout << "You're not logged in!" << endl << endl;
-                    system("pause");
                 }
             }
         }

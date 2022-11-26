@@ -49,7 +49,7 @@ vector <Expenses> ExpensesFile::readFile(int loggedUserId) {
         newExpense.setItem(MCD_2PCSZ(xml.GetData()));
 
         xml.FindElem("Amount");
-        newExpense.setAmount(atoi(MCD_2PCSZ(xml.GetData())));
+        newExpense.setAmount(MCD_2PCSZ(xml.GetData()));
 
         xml.OutOfElem();
         expenses.push_back(newExpense);

@@ -8,11 +8,12 @@
 using namespace std;
 
 class Expenses {
-    int expenseId, userId, amount;
+    int expenseId, userId;
+    string amount;
     string date, item;
 
 public:
-    Expenses(int expenseId = 0, int userId = 0, int amount = 0, string date = "", string item = "") {
+    Expenses(int expenseId = 0, int userId = 0, string amount = "", string date = "", string item = "") {
         this -> expenseId = expenseId;
         this -> userId = userId;
         this -> amount = amount;
@@ -21,13 +22,13 @@ public:
     }
     void setExpenseId (int newExpenseId);
     void setUserId (int newUserId);
-    void setAmount (int newAmount);
+    void setAmount (string newAmount);
     void setDate (string newDate);
     void setItem (string newItem);
 
     int getExpenseId ();
     int getUserId ();
-    int getAmount ();
+    string getAmount ();
     string getDate ();
     string getItem ();
 
