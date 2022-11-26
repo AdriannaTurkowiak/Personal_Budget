@@ -50,11 +50,10 @@ vector <Incomes> IncomesFile::readFile(int loggedUserId) {
         newIncome.setItem(MCD_2PCSZ(xml.GetData()));
 
         xml.FindElem("IncomeAmount");
-        newIncome.setAmount(atoi(MCD_2PCSZ(xml.GetData())));
+        newIncome.setAmount(MCD_2PCSZ(xml.GetData()));
 
         xml.OutOfElem();
         incomes.push_back(newIncome);
     }
     return incomes;
 }
-

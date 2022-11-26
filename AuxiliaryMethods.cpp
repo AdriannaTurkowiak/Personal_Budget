@@ -37,3 +37,27 @@ char AuxiliaryMethods::loadCharacter() {
     }
     return character;
 }
+
+/*string AuxiliaryMethods::loadLine()
+{
+    string in = "";
+    getline(cin, in);
+    return in;
+}*/
+string AuxiliaryMethods::convertFloatToString (float amount)
+{
+    std::stringstream FloatToStr;
+    std::string str;
+
+    FloatToStr << amount;
+    FloatToStr >> str;
+    FloatToStr.clear();
+
+    return str;
+}
+
+float AuxiliaryMethods::convertStringToFloat (string amount)
+{
+    float num_float = std::stof(amount);
+    return num_float;
+}

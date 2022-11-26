@@ -22,9 +22,8 @@ string DateManager::findToday() {
     dateTodayString = yearTodayString + monthTodayString + dayTodayString;
     dateTodayString = AuxiliaryMethods::addDashToDate(dateTodayString);
 
-    cout << "Today is: " << dateTodayString << endl;
-    cout << endl;
-    system("pause");
+   // cout << "Today is: " << dateTodayString << endl;
+    //cout << endl;
 
     return dateTodayString;
 }
