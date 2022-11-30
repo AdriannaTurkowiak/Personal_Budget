@@ -110,8 +110,7 @@ void DateManager::compareDate() {
     }
 }
 
-bool DateManager::isDateInRange (string checkDate, string startDate, string endDate)
-{
+bool DateManager::isDateInRange (string checkDate, string startDate, string endDate) {
     int checkDayInt, checkMonthInt, checkYearInt;
     int startDayInt, startMonthInt, startYearInt;
     int endDayInt, endMonthInt, endYearInt;
@@ -171,6 +170,7 @@ bool DateManager::isDateInRange (string checkDate, string startDate, string endD
         return false;
     }
 }
+
 string DateManager::getLastMonthFirstDay() {
     string today = findToday();
     string lmfdDateString, lmfdYearString, lmfdMonthString, lmfdDayString = "01";
@@ -198,10 +198,6 @@ string DateManager::getLastMonthFirstDay() {
     lmfdDateString = lmfdYearString + lmfdMonthString + lmfdDayString;
     lmfdDateString = AuxiliaryMethods::addDashToDate(lmfdDateString);
 
-    cout << "First day of last month was: " << lmfdDateString << endl;
-    cout << endl;
-    system("pause");
-
     return lmfdDateString;
 }
 
@@ -222,6 +218,7 @@ string DateManager::getCurretntMonthFirstDay() {
 
     return cmfdDateString;
 }
+
 string DateManager::getLastMonthLastDay() {
     string today = findToday();
     string lmldDateString, lmldYearString, lmldMonthString, lmldDayString;
@@ -255,15 +252,10 @@ string DateManager::getLastMonthLastDay() {
     lmldDateString = lmldYearString + lmldMonthString + lmldDayString;
     lmldDateString = AuxiliaryMethods::addDashToDate(lmldDateString);
 
-    cout << "Last day of last month was: " << lmldDateString << endl;
-    cout << endl;
-    system("pause");
-
     return lmldDateString;
 }
 
-int DateManager::getDayFromDate (string date)
-{
+int DateManager::getDayFromDate (string date) {
     string dayStr;
     int day;
 
@@ -272,8 +264,7 @@ int DateManager::getDayFromDate (string date)
     return day;
 }
 
-int DateManager::getMonthFromDate (string date)
-{
+int DateManager::getMonthFromDate (string date) {
     string monthStr;
     int month;
 
