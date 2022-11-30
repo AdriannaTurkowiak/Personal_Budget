@@ -205,7 +205,6 @@ string DateManager::getCurretntMonthFirstDay() {
 
     string today = findToday();
     string cmfdDateString, cmfdYearString, cmfdMonthString, cmfdDayString = "01";
-    int cmfdYear, cmfdMonth;
 
     cmfdMonthString = today;
     cmfdMonthString = cmfdMonthString.substr(5,2);

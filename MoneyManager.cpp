@@ -190,7 +190,9 @@ void MoneyManager::currentMonthBalance() {
             IncomesSum += IncomesAmountFl;
         }
     }
-
+    sort(incomes.begin(), incomes.end(), [](const Incomes& left, const Incomes& right) {
+        return left.date < right.date;
+    });
     for (int j = 0; j < expensesSize; j++) {
         string checkDate = expenses[j].getDate();
         if (dateManager.isDateInRange(checkDate, startDate, endDate) == true) {
@@ -202,6 +204,10 @@ void MoneyManager::currentMonthBalance() {
             ExpensesSum += ExpensesAmountFl;
         }
     }
+    sort(expenses.begin(), expenses.end(), [](const Expenses& left, const Expenses& right) {
+        return left.date < right.date;
+    });
+
     cout << " >>> CURRENT MONTH BALANCE: <<<" << endl;
     cout << "---------------------------" << endl;
     cout << endl;
