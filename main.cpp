@@ -32,19 +32,19 @@ int main() {
                         personalBudget.expenseRegister();
                         break;
                     case '3':
-                        personalBudget.compareDate();
+                        personalBudget.currentMonthBalance();
                         break;
                     case '4':
-                        personalBudget.findToday();
+                        personalBudget.lastMonthBalance();
                         break;
                     case '5':
-                        personalBudget.getLastMonthFirstDay();
+                        personalBudget.selectedPeriodBalance();
                         break;
                     case '6':
-                        personalBudget.getLastMonthLastDay();
+                        personalBudget.changePassword();
                         break;
                     case '7':
-                        (!personalBudget.isUserLogged());
+                        personalBudget.logout();
                         break;
                     default:
                         cout << "There is no such option in the menu!" << endl << endl;

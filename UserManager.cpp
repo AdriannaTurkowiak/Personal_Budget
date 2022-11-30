@@ -94,3 +94,11 @@ bool UserManager::isUserLogged() {
         return false;
     }
 }
+
+bool UserManager::changePassword() {
+    ;
+}
+
+bool UserManager::logout() {
+    ;
+}

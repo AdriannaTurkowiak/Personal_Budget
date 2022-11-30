@@ -21,8 +21,6 @@ void IncomesFile::saveIncomeInFile(Incomes newIncome) {
     xml.AddElem( "Amount", newIncome.getAmount());
     xml.OutOfElem();
     xml.Save(INCOME_FILE_NAME);
-
-    return;
 }
 
 vector <Incomes> IncomesFile::readFile(int loggedUserId) {
@@ -38,19 +36,24 @@ vector <Incomes> IncomesFile::readFile(int loggedUserId) {
         xml.IntoElem();
 
         xml.FindElem("IncomeID");
-        newIncome.setIncomeId(atoi(MCD_2PCSZ(xml.GetData())));
+        int incomeId = stoi(xml.GetData());
+        newIncome.setIncomeId(incomeId);
 
         xml.FindElem("UserID");
-        newIncome.setUserId(atoi(MCD_2PCSZ(xml.GetData())));
+        int userId = stoi(xml.GetData());
+        newIncome.setUserId(userId);
 
-        xml.FindElem("IncomeDate");
-        newIncome.setDate(MCD_2PCSZ(xml.GetData()));
+        xml.FindElem("Date");
+        string date = xml.GetData();
+        newIncome.setDate(date);
 
-        xml.FindElem("IncomeItem");
-        newIncome.setItem(MCD_2PCSZ(xml.GetData()));
+        xml.FindElem("Item");
+        string item = xml.GetData();
+        newIncome.setItem(item);
 
-        xml.FindElem("IncomeAmount");
-        newIncome.setAmount(MCD_2PCSZ(xml.GetData()));
+        xml.FindElem("Amount");
+        string amount = xml.GetData();
+        newIncome.setAmount(amount);
 
         xml.OutOfElem();
         incomes.push_back(newIncome);

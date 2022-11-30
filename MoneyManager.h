@@ -46,6 +46,8 @@ public:
     bool isDateCorrect(string date);
     float setDecimal(float amount);
     string changeCommaToDot (string amount);
-
+    void currentMonthBalance();
+    void lastMonthBalance();
+    void selectedPeriodBalance();
 };
 #endif
