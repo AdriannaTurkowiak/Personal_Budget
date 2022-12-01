@@ -110,6 +110,67 @@ void DateManager::compareDate() {
     }
 }
 
+bool DateManager::isDateInRange (string checkDate, string startDate, string endDate) {
+    int checkDayInt, checkMonthInt, checkYearInt;
+    int startDayInt, startMonthInt, startYearInt;
+    int endDayInt, endMonthInt, endYearInt;
+
+    string checkDayString, checkMonthString, checkYearString;
+    string startDayString, startMonthString, startYearString;
+    string endDayString, endMonthString, endYearString;
+
+ //*** Get Year ***//
+    checkYearString = checkDate;
+    checkYearString = checkYearString.erase(4,6);
+    checkYearInt = AuxiliaryMethods::convertStringToInt(checkYearString);
+
+    startYearString = startDate;
+    startYearString = startYearString.erase(4,6);
+    startYearInt = AuxiliaryMethods::convertStringToInt(startYearString);
+
+    endYearString = endDate;
+    endYearString = endYearString.erase(4,6);
+    endYearInt = AuxiliaryMethods::convertStringToInt(endYearString);
+
+ //*** Get Month ***//
+    checkMonthString = checkDate;
+    checkMonthString = checkMonthString.substr(5,2);
+    checkMonthInt = AuxiliaryMethods::convertStringToInt(checkMonthString);
+
+    startMonthString = startDate;
+    startMonthString = startMonthString.substr(5,2);
+    startMonthInt = AuxiliaryMethods::convertStringToInt(startMonthString);
+
+    endMonthString = endDate;
+    endMonthString = endMonthString.substr(5,2);
+    endMonthInt = AuxiliaryMethods::convertStringToInt(endMonthString);
+
+ //*** Get Day ***//
+    checkDayString = checkDate;
+    checkDayString = checkDayString.substr(8,2);
+    checkDayInt = AuxiliaryMethods::convertStringToInt(checkDayString);
+
+    startDayString = startDate;
+    startDayString = startDayString.substr(8,2);
+    startDayInt = AuxiliaryMethods::convertStringToInt(startDayString);
+
+    endDayString = endDate;
+    endDayString = endDayString.substr(8,2);
+    endDayInt = AuxiliaryMethods::convertStringToInt(endDayString);
+
+//*** Checking date ***//
+    int checkDateInt = (checkYearInt * 10000) + (checkMonthInt * 100) + checkDayInt;
+    int startDateInt = (startYearInt * 10000) + (startMonthInt * 100) + startDayInt;
+    int endDateInt = (endYearInt * 10000) + (endMonthInt * 100) + endDayInt;
+
+    if (checkDateInt >= startDateInt && checkDateInt <= endDateInt){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 string DateManager::getLastMonthFirstDay() {
     string today = findToday();
     string lmfdDateString, lmfdYearString, lmfdMonthString, lmfdDayString = "01";
@@ -137,11 +198,24 @@ string DateManager::getLastMonthFirstDay() {
     lmfdDateString = lmfdYearString + lmfdMonthString + lmfdDayString;
     lmfdDateString = AuxiliaryMethods::addDashToDate(lmfdDateString);
 
-    cout << "First day of last month was: " << lmfdDateString << endl;
-    cout << endl;
-    system("pause");
-
     return lmfdDateString;
+}
+
+string DateManager::getCurretntMonthFirstDay() {
+
+    string today = findToday();
+    string cmfdDateString, cmfdYearString, cmfdMonthString, cmfdDayString = "01";
+
+    cmfdMonthString = today;
+    cmfdMonthString = cmfdMonthString.substr(5,2);
+
+    cmfdYearString = today;
+    cmfdYearString = cmfdYearString.erase(4,6);
+
+    cmfdDateString = cmfdYearString + cmfdMonthString + cmfdDayString;
+    cmfdDateString = AuxiliaryMethods::addDashToDate(cmfdDateString);
+
+    return cmfdDateString;
 }
 
 string DateManager::getLastMonthLastDay() {
@@ -177,9 +251,23 @@ string DateManager::getLastMonthLastDay() {
     lmldDateString = lmldYearString + lmldMonthString + lmldDayString;
     lmldDateString = AuxiliaryMethods::addDashToDate(lmldDateString);
 
-    cout << "Last day of last month was: " << lmldDateString << endl;
-    cout << endl;
-    system("pause");
-
     return lmldDateString;
+}
+
+int DateManager::getDayFromDate (string date) {
+    string dayStr;
+    int day;
+
+    dayStr = date.substr(8,2);
+    day = AuxiliaryMethods::convertStringToInt(dayStr);
+    return day;
+}
+
+int DateManager::getMonthFromDate (string date) {
+    string monthStr;
+    int month;
+
+    monthStr = date.substr(5,2);
+    month = AuxiliaryMethods::convertStringToInt(monthStr);
+    return month;
 }

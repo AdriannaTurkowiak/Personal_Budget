@@ -33,11 +33,12 @@ public:
     void expenseRegister();
     void logIn();
     bool isUserLogged();
+    void logout();
     char userMenu();
-    void findToday();
-    void compareDate();
-    void getLastMonthFirstDay();
-    void getLastMonthLastDay();
+    void currentMonthBalance();
+    void lastMonthBalance();
+    void selectedPeriodBalance();
+    void changePassword();
     char loadCharacter();
     char mainMenu();
 

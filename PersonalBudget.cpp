@@ -62,19 +62,22 @@ char PersonalBudget::userMenu() {
     return selection;
 }
 
-void PersonalBudget::findToday() {
-    date.findToday();
+void PersonalBudget::currentMonthBalance() {
+   moneyManager->currentMonthBalance();
 }
 
-void PersonalBudget::compareDate() {
-    return date.compareDate();
+void PersonalBudget::lastMonthBalance() {
+    moneyManager->lastMonthBalance();
 }
 
-void PersonalBudget::getLastMonthFirstDay() {
-    date.getLastMonthFirstDay();
+void PersonalBudget::selectedPeriodBalance() {
+    moneyManager->selectedPeriodBalance();
 }
 
-void PersonalBudget::getLastMonthLastDay() {
-    date.getLastMonthLastDay();
+void PersonalBudget::changePassword() {
+    userManager.changePassword();
 }
 
+void PersonalBudget::logout() {
+    userManager.logout();
+}

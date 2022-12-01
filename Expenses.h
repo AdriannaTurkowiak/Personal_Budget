@@ -9,10 +9,11 @@ using namespace std;
 
 class Expenses {
     int expenseId, userId;
-    string amount;
-    string date, item;
+    string amount, item;
+    //string date;
 
 public:
+    string date;
     Expenses(int expenseId = 0, int userId = 0, string amount = "", string date = "", string item = "") {
         this -> expenseId = expenseId;
         this -> userId = userId;
