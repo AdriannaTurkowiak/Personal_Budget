@@ -80,4 +80,6 @@ void PersonalBudget::changePassword() {
 
 void PersonalBudget::logout() {
     userManager.logout();
+    delete moneyManager;
+    moneyManager = NULL;
 }

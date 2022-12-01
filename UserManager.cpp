@@ -95,10 +95,38 @@ bool UserManager::isUserLogged() {
     }
 }
 
-bool UserManager::changePassword() {
-    ;
+void UserManager::changePassword() {
+
+    string newPassword = "";
+    cout << "Enter new password: ";
+    cin >> newPassword;
+
+    for (int i = 0; i < (int) users.size(); i++) {
+        if (users[i].getId() == loggedUserId) {
+                users[i].setPassword(newPassword);
+
+            cout << "Password has been changed." << endl << endl;
+            system("pause");
+        }
+    userFile.savePasswordInFile(loggedUserId, newPassword);
+    }
 }
 
-bool UserManager::logout() {
-    ;
+void UserManager::logout() {
+
+    if (loggedUserId == 0)
+
+        cout<<"No One is logged"<<endl;
+    else {
+        vector <User>::iterator itr = users.begin();
+        while (itr != users.end())
+        {
+            if (itr -> getId() == loggedUserId)
+                break;
+            itr++;
+        }
+        cout << "User: " << itr -> getLogin() << " is logged out."<<endl;
+        loggedUserId = 0;
+    }
+    system("pause");
 }

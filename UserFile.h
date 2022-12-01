@@ -21,5 +21,6 @@ public:
 
     void saveUserInFile(User newUser);
     vector <User> readFile();
+    void savePasswordInFile(int loggedUserID, string newPassword);
 };
 #endif

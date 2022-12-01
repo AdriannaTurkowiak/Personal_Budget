@@ -58,3 +58,23 @@ vector <User> UserFile::readFile() {
     return users;
 }
 
+void UserFile::savePasswordInFile(int loggedUserID, string newPassword) {
+
+    string tempPassword;
+    CMarkup xml;
+    xml.Load(USER_FILE_NAME);
+    xml.FindElem();
+    xml.IntoElem();
+    while (xml.FindElem("SingleUser")) {
+        xml.IntoElem();
+        xml.FindElem("UserID");
+        tempPassword = xml.GetData();
+        int x = atoi(tempPassword.c_str());
+        if (x == loggedUserID) {
+            xml.FindElem("Password");
+            xml.SetElemContent(newPassword);
+        }
+        xml.OutOfElem();
+        xml.Save(USER_FILE_NAME);
+    }
+}
