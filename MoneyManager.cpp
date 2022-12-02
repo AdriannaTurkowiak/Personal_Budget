@@ -243,7 +243,6 @@ float MoneyManager::sumOfIncomes(string startDate, string endDate) {
 
     Incomes incomesObj;
     vector <Incomes> incomesTemp;
-    int incomesSize = incomes.size();
 
     string IncomesAmountStr;
     float IncomesAmountFl = 0.00, IncomesSum = 0.00;
@@ -281,7 +280,6 @@ float MoneyManager::sumOfExpenses(string startDate, string endDate) {
 
     Expenses expensesObj;
     vector <Expenses> expensesTemp;
-    int expensesSize = expenses.size();
 
     string ExpensesAmountStr;
     float ExpensesAmountFl = 0.00, ExpensesSum = 0.00;
