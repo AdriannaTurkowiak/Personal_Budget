@@ -166,180 +166,49 @@ string MoneyManager::changeCommaToDot (string amount) {
 
 void MoneyManager::currentMonthBalance() {
 
-    Incomes incomesObj;
-    Expenses expensesObj;
-    vector <Incomes> incomesTemp;
-    vector <Expenses> expensesTemp;
-    int incomesSize = incomes.size();
-    int expensesSize = expenses.size();
-
     string startDate = dateManager.getCurretntMonthFirstDay();
     string endDate = dateManager.findToday();
-
-    string IncomesAmountStr, ExpensesAmountStr;
-    float IncomesAmountFl = 0.00, ExpensesAmountFl = 0.00, IncomesSum = 0.00, ExpensesSum = 0.00;
-
-    for (int i = 0; i < incomesSize; i++) {
-        string checkDate = incomes[i].getDate();
-        if (dateManager.isDateInRange(checkDate, startDate, endDate) == true) {
-            incomesObj = incomes[i];
-            incomesTemp.push_back(incomesObj);
-
-            IncomesAmountStr = incomesTemp[i].getAmount();
-            IncomesAmountFl = AuxiliaryMethods::convertStringToFloat(IncomesAmountStr);
-            IncomesSum += IncomesAmountFl;
-        }
-    }
-    sort(incomes.begin(), incomes.end(), [](const Incomes& left, const Incomes& right) {
-        return left.date < right.date;
-    });
-    for (int j = 0; j < expensesSize; j++) {
-        string checkDate = expenses[j].getDate();
-        if (dateManager.isDateInRange(checkDate, startDate, endDate) == true) {
-            expensesObj = expenses[j];
-            expensesTemp.push_back(expensesObj);
-
-            ExpensesAmountStr = expensesTemp[j].getAmount();
-            ExpensesAmountFl = AuxiliaryMethods::convertStringToFloat(ExpensesAmountStr);
-            ExpensesSum += ExpensesAmountFl;
-        }
-    }
-    sort(expenses.begin(), expenses.end(), [](const Expenses& left, const Expenses& right) {
-        return left.date < right.date;
-    });
 
     cout << " >>> CURRENT MONTH BALANCE: <<<" << endl;
     cout << "---------------------------" << endl;
     cout << endl;
 
-    cout << "INCOMES:" << endl;
-    if (incomesTemp.empty())
-        cout << "There are no incomes this month" << endl;
+    float IncomesSum = sumOfIncomes(startDate, endDate);
+    float ExpensesSum = sumOfExpenses (startDate, endDate);
 
-    for (int i = 0; i < (int) incomesTemp.size(); i++) {
-
-        cout << "Date: " << incomesTemp[i].getDate() << endl;
-        cout << "Item: " << incomesTemp[i].getItem() << endl;
-        cout << "Amount: " << incomesTemp[i].getAmount() << endl;
-    }
-    cout << endl;
-
-    cout << "EXPENSES:" << endl;
-    if (expensesTemp.empty())
-        cout << "There are no expenses this month" << endl;
-
-    for (int j = 0; j < (int) expensesTemp.size(); j++) {
-
-        cout << "Date: " << expensesTemp[j].getDate() << endl;
-        cout << "Item: " << expensesTemp[j].getItem() << endl;
-        cout << "Amount: " << expensesTemp[j].getAmount() << endl;
-    }
-    cout << endl;
     cout << "---------------------------" << endl;
     cout << "Summary of incomes: " << IncomesSum << endl;
     cout << "Summary of expenses: " << ExpensesSum << endl;
     cout << endl;
     cout << "MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
     cout << "---------------------------" << endl;
-
     cout << endl;
     system("pause");
 }
 
 void MoneyManager::lastMonthBalance() {
 
-    Incomes incomesObj;
-    Expenses expensesObj;
-    vector <Incomes> incomesTemp;
-    vector <Expenses> expensesTemp;
-    int incomesSize = incomes.size();
-    int expensesSize = expenses.size();
-
     string startDate = dateManager.getLastMonthFirstDay();
     string endDate = dateManager.getLastMonthLastDay();
 
-    string IncomesAmountStr, ExpensesAmountStr;
-    float IncomesAmountFl = 0.00, ExpensesAmountFl = 0.00, IncomesSum = 0.00, ExpensesSum = 0.00;
+    cout << " >>> LAST MONTH BALANCE: <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << endl;
 
-    for (int i = 0; i < incomesSize; i++) {
-        string checkDate = incomes[i].getDate();
-        if (dateManager.isDateInRange(checkDate, startDate, endDate) == true) {
-            incomesObj = incomes[i];
-            incomesTemp.push_back(incomesObj);
+    float IncomesSum = sumOfIncomes(startDate, endDate);
+    float ExpensesSum = sumOfExpenses (startDate, endDate);
 
-            IncomesAmountStr = incomesTemp[i].getAmount();
-            IncomesAmountFl = AuxiliaryMethods::convertStringToFloat(IncomesAmountStr);
-            IncomesSum += IncomesAmountFl;
-        }
-
-
-        sort(incomes.begin(), incomes.end(), [](const Incomes& left, const Incomes& right) {
-            return left.date < right.date;
-        });
-
-        for (int j = 0; j < expensesSize; j++) {
-            string checkDate = expenses[j].getDate();
-            if (dateManager.isDateInRange(checkDate, startDate, endDate) == true) {
-                expensesObj = expenses[j];
-                expensesTemp.push_back(expensesObj);
-
-                ExpensesAmountStr = expensesTemp[j].getAmount();
-                ExpensesAmountFl = AuxiliaryMethods::convertStringToFloat(ExpensesAmountStr);
-                ExpensesSum += ExpensesAmountFl;
-            }
-        }
-        sort(expenses.begin(), expenses.end(), [](const Expenses& left, const Expenses& right) {
-            return left.date < right.date;
-        });
-
-
-        cout << " >>> LAST MONTH BALANCE: <<<" << endl;
-        cout << "---------------------------" << endl;
-        cout << endl;
-
-        cout << "INCOMES:" << endl;
-        if (incomesTemp.empty())
-            cout << "There was no incomes last month" << endl;
-
-        for (int i = 0; i < (int) incomesTemp.size(); i++) {
-
-            cout << "Date: " << incomesTemp[i].getDate() << endl;
-            cout << "Item: " << incomesTemp[i].getItem() << endl;
-            cout << "Amount: " << incomesTemp[i].getAmount() << endl;
-        }
-        cout << endl;
-
-        cout << "EXPENSES:" << endl;
-        if (expensesTemp.empty())
-            cout << "There was no expenses last month" << endl;
-
-        for (int j = 0; j < (int) expensesTemp.size(); j++) {
-
-            cout << "Date: " << expensesTemp[j].getDate() << endl;
-            cout << "Item: " << expensesTemp[j].getItem() << endl;
-            cout << "Amount: " << expensesTemp[j].getAmount() << endl;
-        }
-        cout << endl;
-        cout << "---------------------------" << endl;
-        cout << "Summary of incomes: " << IncomesSum << endl;
-        cout << "Summary of expenses: " << ExpensesSum << endl;
-        cout << endl;
-        cout << "LAST MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
-        cout << "---------------------------" << endl;
-
-        cout << endl;
-        system("pause");
+    cout << "---------------------------" << endl;
+    cout << "Summary of incomes: " << IncomesSum << endl;
+    cout << "Summary of expenses: " << ExpensesSum << endl;
+    cout << endl;
+     cout << "LAST MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
+    cout << "---------------------------" << endl;
+    cout << endl;
+    system("pause");
     }
-}
 
 void MoneyManager::selectedPeriodBalance() {
-
-    Incomes incomesObj;
-    Expenses expensesObj;
-    vector <Incomes> incomesTemp;
-    vector <Expenses> expensesTemp;
-    int incomesSize = incomes.size();
-    int expensesSize = expenses.size();
 
     string startDate, endDate;
 
@@ -347,21 +216,43 @@ void MoneyManager::selectedPeriodBalance() {
     cin >> startDate;
     if(isDateCorrect(startDate) == true);
     cout << endl;
+
     cout << "Enter end date in format: yyyy-mm-dd: " << endl;
     cin >> endDate;
     if(isDateCorrect(endDate) == true);
     cout << endl;
 
-    string IncomesAmountStr, ExpensesAmountStr;
-    float IncomesAmountFl = 0.00, ExpensesAmountFl = 0.00, IncomesSum = 0.00, ExpensesSum = 0.00;
+    cout << " >>> SELECTED PERIOD BALANCE: <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << endl;
 
-    for (int i = 0; i < incomesSize; i++) {
-        string checkDate = incomes[i].getDate();
-        if (dateManager.isDateInRange(checkDate, startDate, endDate) == true) {
-            incomesObj = incomes[i];
-            incomesTemp.push_back(incomesObj);
+    float IncomesSum = sumOfIncomes(startDate, endDate);
+    float ExpensesSum = sumOfExpenses (startDate, endDate);
 
-            IncomesAmountStr = incomesTemp[i].getAmount();
+    cout << "---------------------------" << endl;
+    cout << "Summary of incomes: " << IncomesSum << endl;
+    cout << "Summary of expenses: " << ExpensesSum << endl;
+    cout << endl;
+    cout << "LAST MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
+    cout << "---------------------------" << endl;
+    cout << endl;
+    system("pause");
+    }
+
+float MoneyManager::sumOfIncomes(string startDate, string endDate) {
+
+    Incomes incomesObj;
+    vector <Incomes> incomesTemp;
+    int incomesSize = incomes.size();
+
+    string IncomesAmountStr;
+    float IncomesAmountFl = 0.00, IncomesSum = 0.00;
+
+    for (vector <Incomes>::iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
+        if (itr->date >= startDate && itr->date <= endDate && itr->getUserId() == LOGGED_USER_ID)
+        {
+            incomesTemp.push_back(*itr);
+            IncomesAmountStr = itr->getAmount(); //incomesTemp[i].getAmount();
             IncomesAmountFl = AuxiliaryMethods::convertStringToFloat(IncomesAmountStr);
             IncomesSum += IncomesAmountFl;
         }
@@ -370,55 +261,58 @@ void MoneyManager::selectedPeriodBalance() {
         return left.date < right.date;
     });
 
-    for (int j = 0; j < expensesSize; j++) {
-        string checkDate = expenses[j].getDate();
-        if (dateManager.isDateInRange(checkDate, startDate, endDate) == true) {
-            expensesObj = expenses[j];
-            expensesTemp.push_back(expensesObj);
-
-            ExpensesAmountStr = expensesTemp[j].getAmount();
-            ExpensesAmountFl = AuxiliaryMethods::convertStringToFloat(ExpensesAmountStr);
-            ExpensesSum += ExpensesAmountFl;
-        }
-    }
-    sort(expenses.begin(), expenses.end(), [](const Expenses& left, const Expenses& right) {
-        return left.date < right.date;
-    });
-
-    cout << " >>> SELECTED PERIOD BALANCE: <<<" << endl;
-    cout << "---------------------------" << endl;
-    cout << endl;
-
     cout << "INCOMES:" << endl;
     if (incomesTemp.empty())
-        cout << "There was no incomes in selected period" << endl;
+        cout << "There are no incomes in selected period" << endl;
 
     for (int i = 0; i < (int) incomesTemp.size(); i++) {
 
         cout << "Date: " << incomesTemp[i].getDate() << endl;
         cout << "Item: " << incomesTemp[i].getItem() << endl;
         cout << "Amount: " << incomesTemp[i].getAmount() << endl;
+        cout << endl;
     }
     cout << endl;
 
+    return IncomesSum;
+}
+
+float MoneyManager::sumOfExpenses(string startDate, string endDate) {
+
+    Expenses expensesObj;
+    vector <Expenses> expensesTemp;
+    int expensesSize = expenses.size();
+
+    string ExpensesAmountStr;
+    float ExpensesAmountFl = 0.00, ExpensesSum = 0.00;
+
+    for (vector <Expenses>::iterator itr = expenses.begin(); itr != expenses.end(); itr++) {
+        if (itr->date >= startDate && itr->date <= endDate && itr->getUserId() == LOGGED_USER_ID)
+        {
+            expensesTemp.push_back(*itr);
+            ExpensesAmountStr = itr->getAmount();
+            ExpensesAmountFl = AuxiliaryMethods::convertStringToFloat(ExpensesAmountStr);
+            ExpensesSum += ExpensesAmountFl;
+            }
+        }
+
+    sort(expenses.begin(), expenses.end(), [](const Expenses& left, const Expenses& right) {
+        return left.date < right.date;
+    });
+
+
     cout << "EXPENSES:" << endl;
     if (expensesTemp.empty())
-        cout << "There was no expenses in selected period" << endl;
+        cout << "There are no expenses in selected period" << endl;
+
 
     for (int j = 0; j < (int) expensesTemp.size(); j++) {
 
         cout << "Date: " << expensesTemp[j].getDate() << endl;
         cout << "Item: " << expensesTemp[j].getItem() << endl;
         cout << "Amount: " << expensesTemp[j].getAmount() << endl;
+        cout << endl;
     }
     cout << endl;
-    cout << "---------------------------" << endl;
-    cout << "Summary of incomes: " << IncomesSum << endl;
-    cout << "Summary of expenses: " << ExpensesSum << endl;
-    cout << endl;
-    cout << "SELECTED PERIOD BALANCE: " << IncomesSum - ExpensesSum << endl;
-    cout << "---------------------------" << endl;
-
-    cout << endl;
-    system("pause");
+    return ExpensesSum;
 }

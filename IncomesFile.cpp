@@ -2,7 +2,6 @@
 
 void IncomesFile::saveIncomeInFile(Incomes newIncome) {
     CMarkup xml;
-
     bool fileExists = xml.Load(INCOME_FILE_NAME);
 
     if (!fileExists) {

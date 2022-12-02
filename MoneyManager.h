@@ -49,5 +49,7 @@ public:
     void currentMonthBalance();
     void lastMonthBalance();
     void selectedPeriodBalance();
+    float sumOfIncomes(string startDate, string endDate);
+    float sumOfExpenses(string startDate, string endDate);
 };
 #endif

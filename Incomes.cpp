@@ -16,7 +16,6 @@ void Incomes::setAmount (string newAmount) {
 
 void Incomes::setDate (string newDate) {
     date = newDate;
-    //return date;
 }
 
 void Incomes::setItem (string newItem) {

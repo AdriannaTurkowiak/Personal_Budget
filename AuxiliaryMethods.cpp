@@ -38,12 +38,6 @@ char AuxiliaryMethods::loadCharacter() {
     return character;
 }
 
-/*string AuxiliaryMethods::loadLine()
-{
-    string in = "";
-    getline(cin, in);
-    return in;
-}*/
 string AuxiliaryMethods::convertFloatToString (float amount)
 {
     std::stringstream FloatToStr;

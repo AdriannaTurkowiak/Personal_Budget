@@ -18,6 +18,8 @@ string DateManager::findToday() {
     dayToday = ltm->tm_mday;
     dateObject.setDay(dayToday);
     dayTodayString = AuxiliaryMethods::convertIntToString(dayToday);
+    if ((dayToday > 0) && (dayToday < 10))
+        dayTodayString = "0" + dayTodayString;
 
     dateTodayString = yearTodayString + monthTodayString + dayTodayString;
     dateTodayString = AuxiliaryMethods::addDashToDate(dateTodayString);

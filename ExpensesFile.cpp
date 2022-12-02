@@ -20,8 +20,6 @@ void ExpensesFile::saveExpenseInFile(Expenses newExpense) {
     xml.AddElem( "Amount", newExpense.getAmount());
     xml.OutOfElem();
     xml.Save(EXPENSES_FILE_NAME);
-
-    return;
 }
 
 vector <Expenses> ExpensesFile::readFile(int loggedUserId) {
@@ -37,19 +35,24 @@ vector <Expenses> ExpensesFile::readFile(int loggedUserId) {
         xml.IntoElem();
 
         xml.FindElem("ExpenseID");
-        newExpense.setExpenseId(atoi(MCD_2PCSZ(xml.GetData())));
+        int expenseId = stoi(xml.GetData());
+        newExpense.setExpenseId(expenseId);
 
         xml.FindElem("UserID");
-        newExpense.setUserId(atoi(MCD_2PCSZ(xml.GetData())));
+        int userId = stoi(xml.GetData());
+        newExpense.setUserId(userId);
 
         xml.FindElem("Date");
-        newExpense.setDate(MCD_2PCSZ(xml.GetData()));
+        string date = xml.GetData();
+        newExpense.setDate(date);
 
         xml.FindElem("Item");
-        newExpense.setItem(MCD_2PCSZ(xml.GetData()));
+        string item = xml.GetData();
+        newExpense.setItem(item);
 
         xml.FindElem("Amount");
-        newExpense.setAmount(MCD_2PCSZ(xml.GetData()));
+        string amount = xml.GetData();
+        newExpense.setAmount(amount);
 
         xml.OutOfElem();
         expenses.push_back(newExpense);
