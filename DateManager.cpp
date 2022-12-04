@@ -24,7 +24,7 @@ string DateManager::findToday() {
     dateTodayString = yearTodayString + monthTodayString + dayTodayString;
     dateTodayString = AuxiliaryMethods::addDashToDate(dateTodayString);
 
-   // cout << "Today is: " << dateTodayString << endl;
+    // cout << "Today is: " << dateTodayString << endl;
     //cout << endl;
 
     return dateTodayString;
@@ -47,71 +47,6 @@ int DateManager::getNumberOfDaysInMonth(int month, int year) {
         return 30;
 }
 
-void DateManager::compareDate() {
-
-    string startDate, endDate;
-
-    int startDay, startMonth, startYear;
-    int endDay, endMonth, endYear;
-    string startDayString, startMonthString, startYearString;
-    string endDayString, endMonthString, endYearString;
-
-    cout << "Enter start date: " << endl;
-    cin >> startDate;
-    cout << endl;
-    cout << "Enter end date: " << endl;
-    cin >> endDate;
-    cout << endl;
-
-    startYearString = startDate;
-    startYearString = startYearString.erase(4,6);
-    startYear = AuxiliaryMethods::convertStringToInt(startYearString);
-
-    endYearString = endDate;
-    endYearString = endYearString.erase(4,6);
-    endYear = AuxiliaryMethods::convertStringToInt(endYearString);
-
-    startMonthString = startDate;
-    startMonthString = startMonthString.substr(5,2);
-    startMonth = AuxiliaryMethods::convertStringToInt(startMonthString);
-
-    endMonthString = endDate;
-    endMonthString = endMonthString.substr(5,2);
-    endMonth = AuxiliaryMethods::convertStringToInt(endMonthString);
-
-    startDayString = startDate;
-    startDayString = startDayString.substr(8,2);
-    startDay = AuxiliaryMethods::convertStringToInt(startDayString);
-
-    endDayString = endDate;
-    endDayString = endDayString.substr(8,2);
-    endDay = AuxiliaryMethods::convertStringToInt(endDayString);
-
-    if (startDate != endDate) {
-        cout << "Result of comparison: " << endl;
-        if (startYear < endYear)
-            cout << startDate << " < " << endDate << endl;
-        else if (startYear > endYear)
-            cout << startDate << " > " << endDate << endl;
-        else if (startYear == endYear) {
-
-            if (startMonth < endMonth)
-                cout << startDate << " < " << endDate << endl;
-            else if (startMonth > endMonth)
-                cout << startDate << " > " << endDate << endl;
-            else if (startMonth == endMonth) {
-
-                if (startDay < endDay)
-                    cout << startDate << " < " << endDate << endl;
-                else if (startDay > endDay)
-                    cout << startDate << " > " << endDate << endl;
-            }
-        }
-        cout << endl;
-        system("pause");
-    }
-}
-
 bool DateManager::isDateInRange (string checkDate, string startDate, string endDate) {
     int checkDayInt, checkMonthInt, checkYearInt;
     int startDayInt, startMonthInt, startYearInt;
@@ -121,7 +56,7 @@ bool DateManager::isDateInRange (string checkDate, string startDate, string endD
     string startDayString, startMonthString, startYearString;
     string endDayString, endMonthString, endYearString;
 
- //*** Get Year ***//
+//*** Get Year ***//
     checkYearString = checkDate;
     checkYearString = checkYearString.erase(4,6);
     checkYearInt = AuxiliaryMethods::convertStringToInt(checkYearString);
@@ -134,7 +69,7 @@ bool DateManager::isDateInRange (string checkDate, string startDate, string endD
     endYearString = endYearString.erase(4,6);
     endYearInt = AuxiliaryMethods::convertStringToInt(endYearString);
 
- //*** Get Month ***//
+//*** Get Month ***//
     checkMonthString = checkDate;
     checkMonthString = checkMonthString.substr(5,2);
     checkMonthInt = AuxiliaryMethods::convertStringToInt(checkMonthString);
@@ -147,7 +82,7 @@ bool DateManager::isDateInRange (string checkDate, string startDate, string endD
     endMonthString = endMonthString.substr(5,2);
     endMonthInt = AuxiliaryMethods::convertStringToInt(endMonthString);
 
- //*** Get Day ***//
+//*** Get Day ***//
     checkDayString = checkDate;
     checkDayString = checkDayString.substr(8,2);
     checkDayInt = AuxiliaryMethods::convertStringToInt(checkDayString);
@@ -165,10 +100,9 @@ bool DateManager::isDateInRange (string checkDate, string startDate, string endD
     int startDateInt = (startYearInt * 10000) + (startMonthInt * 100) + startDayInt;
     int endDateInt = (endYearInt * 10000) + (endMonthInt * 100) + endDayInt;
 
-    if (checkDateInt >= startDateInt && checkDateInt <= endDateInt){
+    if (checkDateInt >= startDateInt && checkDateInt <= endDateInt) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
@@ -254,22 +188,4 @@ string DateManager::getLastMonthLastDay() {
     lmldDateString = AuxiliaryMethods::addDashToDate(lmldDateString);
 
     return lmldDateString;
-}
-
-int DateManager::getDayFromDate (string date) {
-    string dayStr;
-    int day;
-
-    dayStr = date.substr(8,2);
-    day = AuxiliaryMethods::convertStringToInt(dayStr);
-    return day;
-}
-
-int DateManager::getMonthFromDate (string date) {
-    string monthStr;
-    int month;
-
-    monthStr = date.substr(5,2);
-    month = AuxiliaryMethods::convertStringToInt(monthStr);
-    return month;
 }

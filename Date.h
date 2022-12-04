@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class Date
-{
+class Date {
     int year, month, day;
     string date;
 

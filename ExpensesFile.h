@@ -18,8 +18,5 @@ public:
     }
     void saveExpenseInFile(Expenses expense);
     vector <Expenses> readFile(int loggedUserId);
-    void showVector (vector <Expenses> expenses);
-    string convertIntToString(int number);
-
 };
 #endif

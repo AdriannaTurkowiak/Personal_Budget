@@ -202,11 +202,11 @@ void MoneyManager::lastMonthBalance() {
     cout << "Summary of incomes: " << IncomesSum << endl;
     cout << "Summary of expenses: " << ExpensesSum << endl;
     cout << endl;
-     cout << "LAST MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
+    cout << "LAST MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
     cout << "---------------------------" << endl;
     cout << endl;
     system("pause");
-    }
+}
 
 void MoneyManager::selectedPeriodBalance() {
 
@@ -237,7 +237,7 @@ void MoneyManager::selectedPeriodBalance() {
     cout << "---------------------------" << endl;
     cout << endl;
     system("pause");
-    }
+}
 
 float MoneyManager::sumOfIncomes(string startDate, string endDate) {
 
@@ -248,8 +248,7 @@ float MoneyManager::sumOfIncomes(string startDate, string endDate) {
     float IncomesAmountFl = 0.00, IncomesSum = 0.00;
 
     for (vector <Incomes>::iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
-        if (itr->date >= startDate && itr->date <= endDate && itr->getUserId() == LOGGED_USER_ID)
-        {
+        if (itr->date >= startDate && itr->date <= endDate && itr->getUserId() == LOGGED_USER_ID) {
             incomesTemp.push_back(*itr);
             IncomesAmountStr = itr->getAmount(); //incomesTemp[i].getAmount();
             IncomesAmountFl = AuxiliaryMethods::convertStringToFloat(IncomesAmountStr);
@@ -285,14 +284,13 @@ float MoneyManager::sumOfExpenses(string startDate, string endDate) {
     float ExpensesAmountFl = 0.00, ExpensesSum = 0.00;
 
     for (vector <Expenses>::iterator itr = expenses.begin(); itr != expenses.end(); itr++) {
-        if (itr->date >= startDate && itr->date <= endDate && itr->getUserId() == LOGGED_USER_ID)
-        {
+        if (itr->date >= startDate && itr->date <= endDate && itr->getUserId() == LOGGED_USER_ID) {
             expensesTemp.push_back(*itr);
             ExpensesAmountStr = itr->getAmount();
             ExpensesAmountFl = AuxiliaryMethods::convertStringToFloat(ExpensesAmountStr);
             ExpensesSum += ExpensesAmountFl;
-            }
         }
+    }
 
     sort(expenses.begin(), expenses.end(), [](const Expenses& left, const Expenses& right) {
         return left.date < right.date;

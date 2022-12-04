@@ -28,8 +28,16 @@ class MoneyManager {
     ExpensesFile expenseFile;
     DateManager dateManager;
 
-    const int LOGGED_USER_ID;
+    int getNewIncomeId();
+    Incomes getNewIncomeInfo();
+    int getNewExpenseId();
+    Expenses getNewExpenseInfo();
+    string changeCommaToDot (string amount);
+    bool isDateCorrect(string date);
+    float sumOfIncomes(string startDate, string endDate);
+    float sumOfExpenses(string startDate, string endDate);
 
+    const int LOGGED_USER_ID;
 
 public:
     MoneyManager(string incomeFileName, int loggedUserId, string expenseFileName) : incomesFile(incomeFileName), expenseFile(expenseFileName), LOGGED_USER_ID(loggedUserId) {
@@ -38,18 +46,9 @@ public:
     }
 
     void incomeRegister();
-    int getNewIncomeId();
-    Incomes getNewIncomeInfo();
     void expenseRegister();
-    int getNewExpenseId();
-    Expenses getNewExpenseInfo();
-    bool isDateCorrect(string date);
-    float setDecimal(float amount);
-    string changeCommaToDot (string amount);
     void currentMonthBalance();
     void lastMonthBalance();
     void selectedPeriodBalance();
-    float sumOfIncomes(string startDate, string endDate);
-    float sumOfExpenses(string startDate, string endDate);
 };
 #endif

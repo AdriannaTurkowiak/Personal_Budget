@@ -18,9 +18,8 @@ class UserFile {
 
 public:
     UserFile(string userFileName) : USER_FILE_NAME(userFileName) {};
-
     void saveUserInFile(User newUser);
-    vector <User> readFile();
     void savePasswordInFile(int loggedUserID, string newPassword);
+    vector <User> readFile();
 };
 #endif

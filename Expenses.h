@@ -10,7 +10,6 @@ using namespace std;
 class Expenses {
     int expenseId, userId;
     string amount, item;
-    //string date;
 
 public:
     string date;
@@ -32,7 +31,6 @@ public:
     string getAmount ();
     string getDate ();
     string getItem ();
-
 };
 
 #endif

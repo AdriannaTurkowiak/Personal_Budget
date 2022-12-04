@@ -25,7 +25,7 @@ bool PersonalBudget::isUserLogged() {
 
 char PersonalBudget::mainMenu() {
 
-char selection = {0};
+    char selection = {0};
 
     system("cls");
     cout << " >>> MAIN MENU <<<" << endl;
@@ -63,7 +63,7 @@ char PersonalBudget::userMenu() {
 }
 
 void PersonalBudget::currentMonthBalance() {
-   moneyManager->currentMonthBalance();
+    moneyManager->currentMonthBalance();
 }
 
 void PersonalBudget::lastMonthBalance() {

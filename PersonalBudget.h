@@ -39,9 +39,7 @@ public:
     void lastMonthBalance();
     void selectedPeriodBalance();
     void changePassword();
-    char loadCharacter();
     char mainMenu();
-
 };
 
 #endif

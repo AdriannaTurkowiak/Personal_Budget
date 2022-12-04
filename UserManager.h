@@ -13,10 +13,15 @@
 using namespace std;
 
 class UserManager {
+
     vector <User> users;
     User user;
     UserFile userFile;
     int loggedUserId;
+    int getNewUserId();
+    User getNewUserData();
+    void saveUserInFile(User newUser);
+    bool isThereLogin(string login);
 
 public:
     UserManager(string userFileName) : userFile(userFileName) {
@@ -24,10 +29,6 @@ public:
         loggedUserId = 0;
     }
     void userRegister();
-    void saveUserInFile(User newUser);
-    int getNewUserId();
-    User getNewUserData();
-    bool isThereLogin(string login);
     int getIdOfLoggedUser();
     void userLogIn();
     bool isUserLogged();
