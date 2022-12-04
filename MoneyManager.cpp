@@ -15,42 +15,35 @@ Incomes MoneyManager::getNewIncomeInfo() {
     int incomeId = 0;
     incomeId = getNewIncomeId();
     newIncome.setIncomeId(incomeId);
-
     newIncome.setUserId(LOGGED_USER_ID);
 
-    string date, item = "", amountStr;
+    string date, item, amountStr;
 
-    cout << "Is this income for today? Enter Yes 'Y' or No 'N': " << endl;
+    system("cls");
+    cout << "Is this income for today? If yes, choose 'Y': " << endl;
     cin >> selection;
 
-    switch (selection) {
-    case 'Y':
-    case 'y':
+    if (selection == 'y' || selection == 'Y')
         newIncome.setDate(dateManager.findToday());
-        break;
-    case 'N':
-    case 'n': {
-        cout << "Enter date of income in format: yyyy-mm-dd: ";
-        cin >> date;
-        if (isDateCorrect(date) == true)
-            newIncome.setDate(date);
-        break;
+    else {
+        do {
+            cout << endl;
+            cout << "Enter date of income in format: yyyy-mm-dd: " << endl;
+            cin >> date;
+        } while (isDateCorrect(date) == false);
+        newIncome.setDate(date);
     }
-    default: {
-        cout << "This is NOT an option button. Please try again." << endl;
-        cout << endl << endl;
-        break;
-    }
-    }
+
     cin.ignore(std::numeric_limits <std::streamsize>::max(), '\n' );
     cout << "Enter item of income: " << endl;
     getline(cin,item);
     newIncome.setItem(item);
-
-    cout << "Enter amount of income with two decimal place: " << endl;
-    cin >> amountStr;
-    amountStr = changeCommaToDot(amountStr);
-    newIncome.setAmount(amountStr);
+    do {
+        cout << "Enter amount of income with two decimal place, using dot: " << endl;
+        cin >> amountStr;
+        amountStr = changeCommaToDot(amountStr);
+        newIncome.setAmount(amountStr);
+    } while (AuxiliaryMethods::isFloat(amountStr) == false);
 
     return newIncome;
 }
@@ -75,38 +68,29 @@ void MoneyManager::expenseRegister() {
 }
 
 Expenses MoneyManager::getNewExpenseInfo() {
-    Expenses newExpense;
 
+    Expenses newExpense;
     char selection = {0};
     int expenseId = 0;
     expenseId = getNewExpenseId();
     newExpense.setExpenseId(expenseId);
-
     newExpense.setUserId(LOGGED_USER_ID);
 
-    string date, item = "", amountStr;
+    string date, item, amountStr;
 
-    cout << "Is this income for today? Enter Yes 'Y' or No 'N': " << endl;
+    system("cls");
+    cout << "Is this expense for today? If yes, choose 'Y': " << endl;
     cin >> selection;
 
-    switch (selection) {
-    case 'Y':
-    case 'y':
+    if (selection == 'y' || selection == 'Y')
         newExpense.setDate(dateManager.findToday());
-        break;
-    case 'N':
-    case 'n': {
-        cout << "Enter date of expense in format: yyyy-mm-dd: ";
-        cin >> date;
-        if (isDateCorrect(date) == true)
-            newExpense.setDate(date);
-        break;
-    }
-    default: {
-        cout << "This is NOT an option button. Please try again." << endl;
-        cout << endl << endl;
-        break;
-    }
+    else {
+        do {
+            cout << endl;
+            cout << "Enter date of expense in format: yyyy-mm-dd: " << endl;
+            cin >> date;
+        } while (isDateCorrect(date) == false);
+        newExpense.setDate(date);
     }
 
     cin.ignore(std::numeric_limits <std::streamsize>::max(), '\n' );
@@ -114,10 +98,12 @@ Expenses MoneyManager::getNewExpenseInfo() {
     getline(cin,item);
     newExpense.setItem(item);
 
-    cout << "Enter amount of expense with two decimal place: " << endl;
-    cin >> amountStr;
-    amountStr = changeCommaToDot(amountStr);
-    newExpense.setAmount(amountStr);
+    do {
+        cout << "Enter amount of income with two decimal place, using dot: " << endl;
+        cin >> amountStr;
+        amountStr = changeCommaToDot(amountStr);
+        newExpense.setAmount(amountStr);
+    } while (AuxiliaryMethods::isFloat(amountStr) == false);
 
     return newExpense;
 }
@@ -137,18 +123,25 @@ bool MoneyManager::isDateCorrect(string date) {
     int year = 0, month = 0, day = 0;
     string today = dateManager.findToday();
 
-    year = stoi(date.substr(0,4));
-    month = stoi(date.substr(5,6));
-    day = stoi(date.substr(8,9));
-
-    if ((date.length() == 10) && (year >= 2000) && (year <= stoi(today.substr(0,4))) && (month >= 1) && (month <= 12) && (day >=1) && (day <= dateManager.getNumberOfDaysInMonth(month, year)))
-        return true;
-
-    else {
+    if(date.length()!=10) {
         cout << "This is NOT good date format. Please try again." << endl;
         cout << endl << endl;
         system("pause");
         return false;
+    } else {
+        year = stoi(date.substr(0,4));
+        month = stoi(date.substr(5,6));
+        day = stoi(date.substr(8,9));
+
+        if ((date.length() == 10) && (year >= 2000) && (year <= stoi(today.substr(0,4))) && (month >= 1) && (month <= 12) && (day >=1) && (day <= dateManager.getNumberOfDaysInMonth(month, year)))
+            return true;
+
+        else {
+            cout << "This is NOT good date format. Please try again." << endl;
+            cout << endl << endl;
+            system("pause");
+            return false;
+        }
     }
 }
 

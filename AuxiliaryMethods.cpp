@@ -42,3 +42,33 @@ float AuxiliaryMethods::convertStringToFloat (string amount) {
     float num_float = std::stof(amount);
     return num_float;
 }
+
+string AuxiliaryMethods::loadLine() {
+    string in = "";
+    getline(cin, in);
+    return in;
+}
+
+string AuxiliaryMethods::convertFloatToString( float amount ) {
+    std::stringstream FloatToStr;
+    std::string str;
+
+    FloatToStr << amount;
+    FloatToStr >> str;
+    FloatToStr.clear();
+
+    return str;
+}
+
+bool AuxiliaryMethods::isFloat(string amount) {
+
+    int foundComma = amount.find_last_of(",");
+    int foundDot = amount.find_last_of(".");
+
+    if (foundComma > 0 || foundDot > 0)
+        return true;
+    else {
+        cout << "Invalid number format. " << endl;
+        return false;
+    }
+}

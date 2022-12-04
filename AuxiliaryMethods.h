@@ -13,8 +13,11 @@ class AuxiliaryMethods {
 public:
     static int convertStringToInt(string number);
     static string convertIntToString(int number);
+    static string convertFloatToString(float amount);
     static string addDashToDate(string date);
+    static string loadLine();
     static char loadCharacter();
     static float convertStringToFloat (string amount);
-};
+    static bool isFloat(string amount);
+    };
 #endif
