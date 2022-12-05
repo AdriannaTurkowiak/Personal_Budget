@@ -4,8 +4,6 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
-#include <stdio.h>
-#include <sstream>
 
 #include "Date.h"
 #include "AuxiliaryMethods.h"
@@ -13,7 +11,6 @@
 using namespace std;
 
 class DateManager {
-    Date dateObject;
 
 public:
     string findToday();

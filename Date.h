@@ -11,12 +11,9 @@ class Date {
     string date;
 
 public:
-    void setYear (int newYear);
-    void setMonth (int newMonth);
-    void setDay (int newDay);
+     void setYear (int newYear);
+     void setMonth (int newMonth);
+     void setDay (int newDay);
 
-    int getYear();
-    int getMonth();
-    int getDay();
 };
 #endif

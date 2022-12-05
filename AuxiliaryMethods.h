@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <sstream>
-#include <fstream>
 #include <algorithm>
 
 using namespace std;
@@ -19,6 +18,5 @@ public:
     static char loadCharacter();
     static float convertStringToFloat (string amount);
     static bool isNumber(const string& amount);
-
     };
 #endif

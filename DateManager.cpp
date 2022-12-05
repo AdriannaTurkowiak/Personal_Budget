@@ -2,6 +2,7 @@
 
 string DateManager::findToday() {
 
+    Date dateObject;
     int yearToday, monthToday, dayToday;
     string dateTodayString, yearTodayString, monthTodayString, dayTodayString;
     time_t now = time(0);

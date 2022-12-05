@@ -14,15 +14,3 @@ void Date::setDay (int newDay) {
     if ((newDay > 0) && (newDay < 32))
         day = newDay;
 }
-
-int Date::getYear() {
-    return year;
-}
-
-int Date::getMonth() {
-    return month;
-}
-
-int Date::getDay() {
-    return day;
-}
