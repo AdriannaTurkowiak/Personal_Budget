@@ -18,6 +18,7 @@ public:
     static string loadLine();
     static char loadCharacter();
     static float convertStringToFloat (string amount);
-    static bool isFloat(string amount);
+    static bool isNumber(const string& amount);
+
     };
 #endif

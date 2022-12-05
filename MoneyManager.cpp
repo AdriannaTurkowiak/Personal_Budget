@@ -37,14 +37,14 @@ Incomes MoneyManager::getNewIncomeInfo() {
 
     cin.ignore(std::numeric_limits <std::streamsize>::max(), '\n' );
     cout << "Enter item of income: " << endl;
-    getline(cin,item);
+    item = AuxiliaryMethods::loadLine();
     newIncome.setItem(item);
     do {
         cout << "Enter amount of income with two decimal place, using dot: " << endl;
         cin >> amountStr;
         amountStr = changeCommaToDot(amountStr);
         newIncome.setAmount(amountStr);
-    } while (AuxiliaryMethods::isFloat(amountStr) == false);
+    } while (AuxiliaryMethods::isNumber(amountStr) == false);
 
     return newIncome;
 }
@@ -97,7 +97,7 @@ Expenses MoneyManager::getNewExpenseInfo() {
 
     cin.ignore(std::numeric_limits <std::streamsize>::max(), '\n' );
     cout << "Enter item of expense: " << endl;
-    getline(cin,item);
+    AuxiliaryMethods::loadLine();
     newExpense.setItem(item);
 
     do {
@@ -105,7 +105,7 @@ Expenses MoneyManager::getNewExpenseInfo() {
         cin >> amountStr;
         amountStr = changeCommaToDot(amountStr);
         newExpense.setAmount(amountStr);
-    } while (AuxiliaryMethods::isFloat(amountStr) == false);
+    } while (AuxiliaryMethods::isNumber(amountStr) == false);
 
     return newExpense;
 }

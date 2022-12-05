@@ -28,6 +28,7 @@ char AuxiliaryMethods::loadCharacter() {
     char character  = {0};
 
     while (true) {
+        cin.sync();
         getline(cin, in);
 
         if (in.length() == 1) {
@@ -45,6 +46,7 @@ float AuxiliaryMethods::convertStringToFloat (string amount) {
 
 string AuxiliaryMethods::loadLine() {
     string in = "";
+    cin.sync();
     getline(cin, in);
     return in;
 }
@@ -60,15 +62,17 @@ string AuxiliaryMethods::convertFloatToString( float amount ) {
     return str;
 }
 
-bool AuxiliaryMethods::isFloat(string amount) {
-
+bool AuxiliaryMethods::isNumber(const string& amount)
+{
     int foundComma = amount.find_last_of(",");
     int foundDot = amount.find_last_of(".");
 
-    if (foundComma > 0 || foundDot > 0)
-        return true;
-    else {
-        cout << "Invalid number format. " << endl;
-        return false;
+    for (char const &ch : amount) {
+        if (std::isdigit(ch) == 0)
+            return false;
+            else if (foundComma < 0 || foundDot > 0)
+                return true;
     }
+    return true;
 }
+
