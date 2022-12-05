@@ -3,18 +3,11 @@
 
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <vector>
-#include <cmath>
-#include <iomanip>
 
-#include "Markup.h"
-#include "Incomes.h"
-#include "Expenses.h"
 #include "IncomesFile.h"
 #include "ExpensesFile.h"
 #include "DateManager.h"
-#include "AuxiliaryMethods.h"
 
 
 using namespace std;
@@ -22,8 +15,6 @@ using namespace std;
 class MoneyManager {
     vector <Incomes> incomes;
     vector <Expenses> expenses;
-    Incomes income;
-    Expenses expense;
     IncomesFile incomesFile;
     ExpensesFile expenseFile;
     DateManager dateManager;
