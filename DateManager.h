@@ -13,11 +13,11 @@ using namespace std;
 class DateManager {
 
 public:
-    string findToday();
-    int getNumberOfDaysInMonth(int month, int year);
-    string getLastMonthFirstDay();
-    string getLastMonthLastDay();
-    bool isDateInRange (string checkDate, string startDate, string endDate);
-    string getCurretntMonthFirstDay();
+    static int getNumberOfDaysInMonth(int month, int year);
+    static bool isDateInRange (string checkDate, string startDate, string endDate);
+    static string findToday();
+    static string getLastMonthFirstDay();
+    static string getLastMonthLastDay();
+    static string getCurretntMonthFirstDay();
 };
 #endif

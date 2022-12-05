@@ -25,7 +25,7 @@ Incomes MoneyManager::getNewIncomeInfo() {
     cin >> selection;
 
     if (selection == 'y' || selection == 'Y')
-        newIncome.setDate(dateManager.findToday());
+        newIncome.setDate(DateManager::findToday());
     else {
         do {
             cout << endl;
@@ -85,7 +85,7 @@ Expenses MoneyManager::getNewExpenseInfo() {
     cin >> selection;
 
     if (selection == 'y' || selection == 'Y')
-        newExpense.setDate(dateManager.findToday());
+        newExpense.setDate(DateManager::findToday());
     else {
         do {
             cout << endl;
@@ -123,7 +123,7 @@ int MoneyManager::getNewExpenseId() {
 bool MoneyManager::isDateCorrect(string date) {
 
     int year = 0, month = 0, day = 0;
-    string today = dateManager.findToday();
+    string today = DateManager::findToday();
 
     if(date.length()!=10) {
         cout << "This is NOT good date format. Please try again." << endl;
@@ -135,7 +135,7 @@ bool MoneyManager::isDateCorrect(string date) {
         month = stoi(date.substr(5,6));
         day = stoi(date.substr(8,9));
 
-        if ((date.length() == 10) && (year >= 2000) && (year <= stoi(today.substr(0,4))) && (month >= 1) && (month <= 12) && (day >=1) && (day <= dateManager.getNumberOfDaysInMonth(month, year)))
+        if ((date.length() == 10) && (year >= 2000) && (year <= stoi(today.substr(0,4))) && (month >= 1) && (month <= 12) && (day >=1) && (day <= DateManager::getNumberOfDaysInMonth(month, year)))
             return true;
 
         else {
@@ -161,8 +161,8 @@ string MoneyManager::changeCommaToDot (string amount) {
 
 void MoneyManager::currentMonthBalance() {
 
-    string startDate = dateManager.getCurretntMonthFirstDay();
-    string endDate = dateManager.findToday();
+    string startDate = DateManager::getCurretntMonthFirstDay();
+    string endDate = DateManager::findToday();
 
     system("cls");
     cout << " >>> CURRENT MONTH BALANCE: <<<" << endl;
@@ -184,8 +184,8 @@ void MoneyManager::currentMonthBalance() {
 
 void MoneyManager::lastMonthBalance() {
 
-    string startDate = dateManager.getLastMonthFirstDay();
-    string endDate = dateManager.getLastMonthLastDay();
+    string startDate = DateManager::getLastMonthFirstDay();
+    string endDate = DateManager::getLastMonthLastDay();
 
     system("cls");
     cout << " >>> LAST MONTH BALANCE: <<<" << endl;
