@@ -19,7 +19,6 @@ int main() {
             break;
         case '2': {
             personalBudget.logIn();
-            {
                 while(personalBudget.isUserLogged()) {
                     system("cls");
                     selection = personalBudget.userMenu();
@@ -52,7 +51,6 @@ int main() {
                         break;
                     }
                 }
-            }
         }
         break;
         case '3':
