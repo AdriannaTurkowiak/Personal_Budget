@@ -1,6 +1,7 @@
 #include "MoneyManager.h"
 
 void MoneyManager::incomeRegister() {
+    Incomes income;
     income = getNewIncomeInfo();
     incomes.push_back(income);
     incomesFile.saveIncomeInFile(income);
@@ -20,7 +21,7 @@ Incomes MoneyManager::getNewIncomeInfo() {
     string date, item, amountStr;
 
     system("cls");
-    cout << "Is this income for today? If yes, choose 'Y': " << endl;
+    cout << "Is this income for today? If yes, choose 'Y'. If no, select any key: " << endl;
     cin >> selection;
 
     if (selection == 'y' || selection == 'Y')
@@ -30,7 +31,7 @@ Incomes MoneyManager::getNewIncomeInfo() {
             cout << endl;
             cout << "Enter date of income in format: yyyy-mm-dd: " << endl;
             cin >> date;
-        } while (isDateCorrect(date) == false);
+        } while (!isDateCorrect(date));
         newIncome.setDate(date);
     }
 
@@ -59,6 +60,7 @@ int MoneyManager::getNewIncomeId() {
 }
 
 void MoneyManager::expenseRegister() {
+    Expenses expense;
     expense = getNewExpenseInfo();
     expenses.push_back(expense);
     expenseFile.saveExpenseInFile(expense);
@@ -79,7 +81,7 @@ Expenses MoneyManager::getNewExpenseInfo() {
     string date, item, amountStr;
 
     system("cls");
-    cout << "Is this expense for today? If yes, choose 'Y': " << endl;
+    cout << "Is this expense for today? If yes, choose 'Y'. If no, select any key: " << endl;
     cin >> selection;
 
     if (selection == 'y' || selection == 'Y')
@@ -89,7 +91,7 @@ Expenses MoneyManager::getNewExpenseInfo() {
             cout << endl;
             cout << "Enter date of expense in format: yyyy-mm-dd: " << endl;
             cin >> date;
-        } while (isDateCorrect(date) == false);
+        } while (!isDateCorrect(date));
         newExpense.setDate(date);
     }
 
@@ -162,6 +164,7 @@ void MoneyManager::currentMonthBalance() {
     string startDate = dateManager.getCurretntMonthFirstDay();
     string endDate = dateManager.findToday();
 
+    system("cls");
     cout << " >>> CURRENT MONTH BALANCE: <<<" << endl;
     cout << "---------------------------" << endl;
     cout << endl;
@@ -184,6 +187,7 @@ void MoneyManager::lastMonthBalance() {
     string startDate = dateManager.getLastMonthFirstDay();
     string endDate = dateManager.getLastMonthLastDay();
 
+    system("cls");
     cout << " >>> LAST MONTH BALANCE: <<<" << endl;
     cout << "---------------------------" << endl;
     cout << endl;
@@ -205,16 +209,19 @@ void MoneyManager::selectedPeriodBalance() {
 
     string startDate, endDate;
 
+    do {
     cout << "Enter start date in format: yyyy-mm-dd: " << endl;
     cin >> startDate;
-    if(isDateCorrect(startDate) == true);
-    cout << endl;
+    cout << endl;}
+    while (!isDateCorrect(startDate));
 
+    do {
     cout << "Enter end date in format: yyyy-mm-dd: " << endl;
     cin >> endDate;
-    if(isDateCorrect(endDate) == true);
-    cout << endl;
+    cout << endl;}
+    while (!isDateCorrect(endDate));
 
+    system("cls");
     cout << " >>> SELECTED PERIOD BALANCE: <<<" << endl;
     cout << "---------------------------" << endl;
     cout << endl;
