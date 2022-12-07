@@ -17,7 +17,6 @@ class MoneyManager {
     vector <Expenses> expenses;
     IncomesFile incomesFile;
     ExpensesFile expenseFile;
-//DateManager dateManager;
 
     int getNewIncomeId();
     Incomes getNewIncomeInfo();

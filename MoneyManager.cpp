@@ -151,7 +151,6 @@ string MoneyManager::changeCommaToDot (string amount) {
 
     int foundComma = 0;
     foundComma = amount.find_last_of(",");
-    //foundDot = amount.find_last_of(".");
 
     if (foundComma > 0)
         amount.replace(foundComma,1,".");
@@ -255,7 +254,7 @@ float MoneyManager::sumOfIncomes(string startDate, string endDate) {
             IncomesSum += IncomesAmountFl;
         }
     }
-    sort(incomes.begin(), incomes.end(), [](const Incomes& left, const Incomes& right) {
+    sort(incomesTemp.begin(), incomesTemp.end(), [](const Incomes& left, const Incomes& right) {
         return left.date < right.date;
     });
 
@@ -292,7 +291,7 @@ float MoneyManager::sumOfExpenses(string startDate, string endDate) {
         }
     }
 
-    sort(expenses.begin(), expenses.end(), [](const Expenses& left, const Expenses& right) {
+    sort(expensesTemp.begin(), expensesTemp.end(), [](const Expenses& left, const Expenses& right) {
         return left.date < right.date;
     });
 
