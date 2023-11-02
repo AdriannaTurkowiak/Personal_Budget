@@ -9,7 +9,7 @@ Features:
 - displaying all selected dates balance
 - changing password of user
 
-![Main menu](images/main.jpg)
-![User menu](images/user.jpg)
-![Current month balance](images/current.jpg)
-![selected period balance](images/selected.jpg)
+![Main menu](images/01.jpg)
+![User menu](images/02.jpg)
+![Current month balance](images/04.jpg)
+![selected period balance](images/03.jpg)
