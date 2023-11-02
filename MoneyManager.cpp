@@ -172,8 +172,8 @@ void MoneyManager::currentMonthBalance() {
     float ExpensesSum = sumOfExpenses (startDate, endDate);
 
     cout << "---------------------------" << endl;
-    cout << "Summary of incomes: " << IncomesSum << endl;
-    cout << "Summary of expenses: " << ExpensesSum << endl;
+    cout << "Summary of incomes: " << fixed << setprecision(2) << IncomesSum << endl;
+    cout << "Summary of expenses: " << fixed << setprecision(2) << ExpensesSum << endl;
     cout << endl;
     cout << "MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
     cout << "---------------------------" << endl;
@@ -195,10 +195,10 @@ void MoneyManager::lastMonthBalance() {
     float ExpensesSum = sumOfExpenses (startDate, endDate);
 
     cout << "---------------------------" << endl;
-    cout << "Summary of incomes: " << IncomesSum << endl;
-    cout << "Summary of expenses: " << ExpensesSum << endl;
+    cout << "Summary of incomes: " << fixed << setprecision(2) << IncomesSum << endl;
+    cout << "Summary of expenses: " << fixed << setprecision(2) << ExpensesSum << endl;
     cout << endl;
-    cout << "LAST MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
+    cout << "LAST MONTH BALANCE: " << fixed << setprecision(2) << IncomesSum - ExpensesSum << endl;
     cout << "---------------------------" << endl;
     cout << endl;
     system("pause");
@@ -229,10 +229,10 @@ void MoneyManager::selectedPeriodBalance() {
     float ExpensesSum = sumOfExpenses (startDate, endDate);
 
     cout << "---------------------------" << endl;
-    cout << "Summary of incomes: " << IncomesSum << endl;
-    cout << "Summary of expenses: " << ExpensesSum << endl;
+    cout << "Summary of incomes: " << fixed << setprecision(2) << IncomesSum << endl;
+    cout << "Summary of expenses: " << fixed << setprecision(2) << ExpensesSum << endl;
     cout << endl;
-    cout << "LAST MONTH BALANCE: " << IncomesSum - ExpensesSum << endl;
+    cout << "LAST MONTH BALANCE: " << fixed << setprecision(2) << IncomesSum - ExpensesSum << endl;
     cout << "---------------------------" << endl;
     cout << endl;
     system("pause");
@@ -266,7 +266,7 @@ float MoneyManager::sumOfIncomes(string startDate, string endDate) {
 
         cout << "Date: " << incomesTemp[i].getDate() << endl;
         cout << "Item: " << incomesTemp[i].getItem() << endl;
-        cout << "Amount: " << incomesTemp[i].getAmount() << endl;
+        cout << "Amount: " << std::fixed << std::setprecision(2) << incomesTemp[i].getAmount() << endl;
         cout << endl;
     }
     cout << endl;
@@ -305,7 +305,7 @@ float MoneyManager::sumOfExpenses(string startDate, string endDate) {
 
         cout << "Date: " << expensesTemp[j].getDate() << endl;
         cout << "Item: " << expensesTemp[j].getItem() << endl;
-        cout << "Amount: " << expensesTemp[j].getAmount() << endl;
+        cout << "Amount: " << std::fixed << std::setprecision(2) << expensesTemp[j].getAmount() << endl;
         cout << endl;
     }
     cout << endl;
